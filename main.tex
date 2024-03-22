@@ -1,0 +1,64 @@
+%! TeX program = lualatex
+\documentclass[a4paper, 12pt, oneside]{memoir}
+
+\setulmarginsandblock{3cm}{3cm}{*}
+\setlrmarginsandblock{3cm}{3cm}{*}
+\checkandfixthelayout
+
+% Style
+\chapterstyle{dash}
+\renewcommand*{\chaptitlefont}{\normalfont\Huge\bfseries\sffamily}
+\renewcommand*{\chapnamefont}{\normalfont\huge\bfseries\sffamily}
+\renewcommand*{\chapnumfont}{\normalfont\huge\bfseries\sffamily}
+\setsecheadstyle{\normalfont\Large\bfseries\sffamily}
+%\renewcommand{\chaptername}{Lecture}
+
+% Tikz
+\usepackage{tikz}
+\usetikzlibrary{cd}
+
+% Bibliography
+\usepackage{hyperref}
+\usepackage[backend=biber, style=alphabetic]{biblatex}
+\addbibresource{library.bib}
+
+% Tables
+\usepackage{booktabs}
+\usepackage{makecell}
+
+% Typesetting
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage{libertinus-otf}
+%\OnehalfSpacing
+
+% Theorem environments
+\usepackage{amsthm}
+\usepackage{thmtools}
+\declaretheorem[style=definition, numbered=no]{example}
+
+% Symbols
+\usepackage{slashed}
+
+% Macros
+\newcommand{\Ecal}{\mathcal{E}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Ocal}{\mathcal{O}}
+\newcommand{\Rbb}{\mathbb{R}}
+\DeclareMathOperator{\Hrm}{H}
+\newcommand{\drm}{\mathrm{d}}
+\newcommand{\dd}{\, \mathrm{d}}
+\newcommand{\hodge}{{\star}}
+
+\title{Quantum Field Theory for Mathematicians}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\include{lecture1.tex}
+
+\printbibliography
+
+\end{document}
