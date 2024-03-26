@@ -46,6 +46,37 @@ In this lecture we consider a naive example that aims to exemplify how the Euler
       \bigslant{\Ocal(T^* M)}{ \bigl( f \vert_{\Graph(\drm S)} = 0 \bigr) } \\
                             &= \bigslant{ \Ocal( T^* M )}{ \bigl( p_{\mu} - \partial_\mu S \bigr) }.
     \end{align*}
+    Consider the resolution
+    \begin{equation*}
+      \begin{tikzcd}[column sep=4.1em]
+        \dots \arrow[r] &
+        \Ocal(T^* M) (\xi_1, \dots, \xi_n) \arrow[r, "\xi_{\mu} \mapsto p_{\mu} - \partial_{\mu} S"] &
+        \Ocal(T^* M) \arrow[r] &
+        \Ocal(\Graph(\drm S))
+      \end{tikzcd}
+    \end{equation*}
+    which we extend to the left as a Koszul complex
+    $K^{-p} = \bigwedge_{\Ocal(T^* M)}^p (\xi_1, \dots, \xi_n)$
+    with differential 
+    \begin{equation*}
+      \drm = \sum_{\mu} (p_{\mu} - \partial_{\mu} S) \frac{\partial}{\partial \xi_{\mu}}.
+    \end{equation*}
+    This complex freely resolves $\Ocal(\Graph(\drm S))$. Alternatively, $(K^\bullet, \drm)$ admits a coordinate free description where
+    \begin{equation*}
+      K^{-p} = \Ocal(T^* M) \otimes_{\Ocal(M)} \Xfrak^p (M).
+    \end{equation*}
+    A model for $\Ocal(\Graph(\drm S)) \otimes_{\Ocal(T^* M)}^{\Lbb} \Ocal(M)$ is given by
+    \begin{equation*}
+      \Ocal(\dCrit(S)) = K^{-\bullet} \otimes_{T^* M} \Ocal(M)
+    \end{equation*}
+    which we call the \textbf{derived critial locus}. But notice that
+    \begin{equation*}
+      \Ocal(T^* M) \otimes_{\Ocal(M)} \Xfrak^\bullet(M) \otimes_{\Ocal(T^* M)} \Ocal(M) \cong \Xfrak^\bullet(M)
+    \end{equation*}
+    where $\Xfrak^\bullet(M)$ denotes the complex of polyvector fields on M. The differential is given by contracting with $\drm S$, so we write
+    \begin{equation*}
+      \Ocal(\dCrit(S)) = (\Xfrak^\bullet(M), \iota_{\drm S}).
+    \end{equation*}
   \end{itemize}
 \end{example}
 
