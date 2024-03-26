@@ -1,6 +1,7 @@
 *.aux
 *.bbl
 *.bcf
+*.blg
 *.fdb_latexmk
 *.log
 *.out
