@@ -36,7 +36,10 @@
 % Theorem environments
 \usepackage{amsthm}
 \usepackage{thmtools}
+\declaretheorem[style=definition]{definition}
 \declaretheorem[style=definition, numbered=no]{example}
+\declaretheorem[style=definition, numbered=no]{exercise}
+
 
 % Symbols
 \usepackage{slashed}
@@ -46,16 +49,21 @@
 \newcommand{\Fcal}{\mathcal{F}}
 \newcommand{\Ocal}{\mathcal{O}}
 \newcommand{\Xfrak}{\mathfrak{X}}
+\newcommand{\gfrak}{\mathfrak{g}}
 \newcommand{\Rbb}{\mathbb{R}}
 \newcommand{\Lbb}{\mathbb{L}}
+\newcommand{\Pbb}{\mathbb{P}}
 \newcommand{\drm}{\mathrm{d}}
 \newcommand{\Hrm}{\mathrm{H}}
 \newcommand{\dd}{\, \mathrm{d}}
 \newcommand{\hodge}{{\star}}
 \newcommand{\bigslant}[2]{{\left.\raisebox{.2em}{$#1$}\middle/\raisebox{-.2em}{$#2$}\right.}}
+\DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\Crit}{Crit}
 \DeclareMathOperator{\dCrit}{dCrit}
 \DeclareMathOperator{\Graph}{Graph}
+\DeclareMathOperator{\PV}{PV}
+\DeclareMathOperator{\Sym}{Sym}
 
 \title{Quantum Field Theory for Mathematicians}
 \author{}
@@ -66,6 +74,8 @@
 
 \include{lecture1.tex}
 \include{lecture2.tex}
-\printbibliography
+\include{lecture3.tex}
 
+\sloppy
+\printbibliography
 \end{document}
