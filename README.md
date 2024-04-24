@@ -1,1 +1,1 @@
-# Quantum Field Theory for Mathematicians
+# Seminar on QFT
