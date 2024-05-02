@@ -21,7 +21,7 @@ track: we will produce a formal power series in $\hbar$.
   i.e., {\em infinitesimally}.
 \item Now $M$ is going to be a finite dimensional manifold, denoting space-time. E.g.,
   \begin{align*}
-    M&=R^d \intertext{or} \\
+    M&=\Rbb^d \intertext{or} \\
     M&=\mathrm{pt}
   \end{align*}
 \item $\Fcal$ always denotes the naive fields, a sheaf of vector
@@ -38,16 +38,35 @@ track: we will produce a formal power series in $\hbar$.
 
   In the Yang-Mills example, where $d=\mathrm{dim} M$
   \begin{equation*}
-    \Ecal(M) = \underbrace{\Omega^0 (M,\mathfrak{g})}_{\text{``ghosts''}}
-    \oplus\underbrace{\Omega^1(M,\mathfrak{g})}_{\text{``fields''}}
-    \oplus\Omega^{d-1} (M,\mathfrak{g})
-    \oplus\Omega^d(M,\mathfrak{g})
+    \Ecal(M) = \underbrace{\Omega^0 (M,\mathfrak{g})}_{\text{``ghosts''}}^{-1}
+    \oplus\underbrace{\Omega^1(M,\mathfrak{g})}_{\text{``fields''}}^{0}
+    \oplus\underbrace{\Omega^{d-1} (M,\mathfrak{g})}_{\text{``anti-fields''}}^{1}
+    \oplus\underbrace{\Omega^d(M,\mathfrak{g})}_{\text{``anti-ghosts''}}^{2}
   \end{equation*}
 \end{itemize}
 
 \section{BV Formulation of Gauge Theory}
 
-TODO
+Input: Naive gauge theory 
+\begin{equation*}
+\underbrace{\Lcal}_{
+  \substack{\text{Lie algebra of}\\
+    \text{infinitesimal gauge}\\
+    \text{transformations}} } \curvearrowright
+\underbrace{\Fcal}_{\text{space of naive fields}}\,.
+\end{equation*}
+The action may be non-linear. In the Young-Mills example it is an
+affine action
+\begin{equation*}
+  \Omega^0 (M\mathfrak{g})\curvearrowright\Omega^1 (M\mathfrak{g})\,.
+\end{equation*}
+There is a two-step process to writing down the gauge theory:
+\begin{enumerate}
+\item Take the {\em ``stacky quotient''}
+  \begin{equation*}
+    \Fcal \rightsquigarrow \Fcal \sslash \Lcal
+  \end{equation*}
+\end{enumerate}
 
 \section{Lightning Fast Introduction to Derived Invariants}
 
