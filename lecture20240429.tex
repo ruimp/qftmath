@@ -30,18 +30,18 @@ track: we will produce a formal power series in $\hbar$.
 
   Example: Yang-Mills fields for a trivial $G$-bundle
   $M\times G \longrightarrow M$, then
-  $\Fcal (M)=\Omega^1 (M,\mathfrak{g})$, where
-  $\mathfrak{g}=\mathrm{Lie} (G)$.
+  $\Fcal (M)=\Omega^1 (M,\gfrak)$, where
+  $\gfrak=\mathrm{Lie} (G)$.
 \item $\Ecal$ (``extended''), the space of BV-fields, a sheaf of {\em
     graded} vector spaces over $M$, sections of a graded vector bundle
   $E\longrightarrow M$. $\Ecal^0 (M)=\Fcal (M)$.
 
   In the Yang-Mills example, where $d=\mathrm{dim} M$
   \begin{equation*}
-    \Ecal(M) = \underbrace{\Omega^0 (M,\mathfrak{g})}_{\text{``ghosts''}}^{-1}
-    \oplus\underbrace{\Omega^1(M,\mathfrak{g})}_{\text{``fields''}}^{0}
-    \oplus\underbrace{\Omega^{d-1} (M,\mathfrak{g})}_{\text{``anti-fields''}}^{1}
-    \oplus\underbrace{\Omega^d(M,\mathfrak{g})}_{\text{``anti-ghosts''}}^{2}
+    \Ecal(M) = \underbrace{\Omega^0 (M,\gfrak)}_{\text{``ghosts''}}^{-1}
+    \oplus\underbrace{\Omega^1(M,\gfrak)}_{\text{``fields''}}^{0}
+    \oplus\underbrace{\Omega^{d-1} (M,\gfrak)}_{\text{``anti-fields''}}^{1}
+    \oplus\underbrace{\Omega^d(M,\gfrak)}_{\text{``anti-ghosts''}}^{2}
   \end{equation*}
 \end{itemize}
 
@@ -58,13 +58,17 @@ Input: Naive gauge theory
 The action may be non-linear. In the Young-Mills example it is an
 affine action
 \begin{equation*}
-  \Omega^0 (M\mathfrak{g})\curvearrowright\Omega^1 (M\mathfrak{g})\,.
+  \Omega^0 (M\gfrak)\curvearrowright\Omega^1 (M\gfrak)\,.
 \end{equation*}
 There is a two-step process to writing down the gauge theory:
 \begin{enumerate}
 \item Take the {\em ``stacky quotient''}
   \begin{equation*}
-    \Fcal \rightsquigarrow \Fcal \sslash \Lcal
+    \Fcal \rightsquigarrow \Fcal \hquot \Lcal \qquad \text{(this lecture)}
+  \end{equation*}
+\item Take the derived critical locus of $S_\text{gauge}$:
+  \begin{equation*}
+    T^*[-1]\left(\Fcal\hquot\Lcal\right)\,. \qquad \text{(already done)}
   \end{equation*}
 \end{enumerate}
 
