@@ -47,7 +47,7 @@ track: we will produce a formal power series in $\hbar$.
 
 \section{BV Formulation of Gauge Theory}
 
-Input: Naive gauge theory 
+Input: Naive gauge theory
 \begin{equation*}
 \underbrace{\Lcal}_{
   \substack{\text{Lie algebra of}\\
@@ -73,9 +73,34 @@ There is a two-step process to writing down the gauge theory:
 \end{enumerate}
 
 \section{Lightning Fast Introduction to Derived Invariants}
+$\gfrak$ a finite dimensional Lie algebra, $R$ a finite dimensional
+representation of $\gfrak$
+\begin{equation*}
+  \gfrak\rightarrow\mathfrak{gl} (R)
+\end{equation*}
+over some field $k\in\{\Rbb,\Cbb\}$.
+Observe that
+\begin{align*}
+  R^{\gfrak}&=\{v\in \Rbb \mid Xv=0 \text{ for all } X\in\gfrak \}\\
+          &=\mathrm{Hom}_{\gfrak} (k,R)
+\end{align*}
+Derived version $\mathrm{Hom} \rightsquigarrow \Rbb\mathrm{Hom}$.
+
+Try $R^{\mathrm{h}\gfrak}=\Rbb\mathrm{Hom}_{U}\gfrak (k,R)$, where
+$U$ is the eveloping algebra. I.e.,
+\begin{equation*}
+  U\gfrak=\frac{T\gfrak}{x\otimes{}y-y\otimes{}x-[x,y]}
+\end{equation*}
+where $Tgfrak$ is the tensor algebra.
+\begin{fact}
+  $\mathrm{Rep_{\gfrak}}\simeq U\gfrak\mathrm{-mod}\,.$
+\end{fact}
+To compute $\Rbb\mathrm{Hom}_{U\gfrak} (k,R)$ we need to resolve $k$
+or $R$ as $U\gfrak$ modules.
+
+Similar to the Koszul complex
 
 TODO
-
 \section{Back to Yang-Mills}
 
 TODO
