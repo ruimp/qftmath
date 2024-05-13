@@ -1,0 +1,109 @@
+\chapter{Lecture 4}
+
+Last time we constructed the derived critical locus of $S \colon M \to \Rbb$
+\begin{equation*}
+  \dCrit(S) = \bigl( T^*[-1] M, - \iota_{\drm S} \bigr)
+\end{equation*}
+where we understand $T^*[1] M = \bigl( M, \PV^\bullet \bigr)$ as the underlying manifold $M$ equipped with the sheaf defined by the assignment
+\begin{equation*}
+  \PV^\bullet \colon U \longrightarrow
+  \Sym_{\Oscr(U)}^\bullet \bigl( \Tcal_M (U) [1] \bigr).
+\end{equation*}
+
+\begin{proposition}
+    If $V$ is a locally-finite $-1$-shifted symplectic dg vector space then
+    \begin{equation*}
+      \Oscr(V) = \Sym(V^\vee)
+    \end{equation*}
+    is a $\Pbb$-algebra.
+\end{proposition}
+\begin{proof}
+  The pairing $\langle \cdot, \cdot \rangle$ induces an isomorphism $V \cong V^\vee[-1]$ which we use to define a bracket
+  \begin{equation*}
+    \{\cdot, \cdot\} \colon \Sym^2(V^\vee) \longrightarrow \Rbb
+  \end{equation*}
+  which we extend as a derivation to $\Oscr(V)$.
+\end{proof}
+
+\section{Work Perturbatively}
+
+Fix a solution to the equations of motion $p \in M$, and consider $V = T_p M$ instead of $M$.
+Then we can expand $S$ as a polynomial (or formal power series).
+
+For us, the space of fields $\Fcal$ will always be a sheaf of vector spaces on spacetime.
+In our example, spacetime is a point $\text{pt}$ and $\Fcal = V$ for some finite-dimensional vector space.
+Going forward we rewrite $T^* [-1]M \rightsquigarrow T^* [-1]V$.
+
+\begin{remark}
+  Be analogy to ungraded geometry $T^*V \cong V \oplus V^\vee$ we have that
+  \begin{equation*}
+    T^* [-1]V \cong V \oplus V^\vee [-1].
+  \end{equation*}
+  In infinite dimensions we consider the sheaves
+  \begin{equation*}
+    T^*[-1] \Fcal
+    = \underbrace{\Fcal \oplus  \Fcal^{\vee}[-1]}_{\substack{
+    \text{sheaf of BV fields}\\\text{without gauge symmetry}}}.
+  \end{equation*}
+\end{remark}
+
+Because we are expanding around a critical point the action has takes the form
+\begin{equation*}
+  S(e) = \underbrace{\langle e, Q e \rangle}_{\substack{\text{Hessian} \\ \text{of }S}} + I(e), \qquad
+  Q \colon \Fcal \longrightarrow \Fcal^{\vee}[-1].
+\end{equation*}
+
+Now let $M$ be a finite-dimensional manifold called spacetime, $\Fcal$ the space of naive fields, as a sheaf of vector spaces on $M$, and $\Ecal$ the sheaf of BV fields.
+Our ultimate goal is to make sense of expressions of the form
+\begin{equation*}
+  \int_{\phi \in \Fcal(M)} \exp \Bigl( - \frac{S_{\text{naive}}}{\hbar} \Bigr) \DD \phi.
+\end{equation*}
+If $\Fcal = V$ and $S$ is quadratic then
+\begin{align*}
+  \int_V \exp \Bigl( - \frac{S(\phi)}{\hbar} \Bigr) \dd \phi
+  &=
+  \int_V \exp \Bigl( -\frac{\langle \phi, Q \phi \rangle}{\hbar} \Bigr) \dd \phi \\
+  &=
+  \Bigl( \frac{\pi}{\hbar} \Bigr)^{\frac{n}{2}} \det (Q)^{-\frac{1}{2}}
+\end{align*}
+and if $S(\phi) = \langle \phi, Q \phi \rangle + I(\phi)$ we incorporate the interaction terms by working perturbatively.
+
+Even at finite dimensions, the case $\det (Q) = 0$ poses a bad problem when trying to apply the previous formula.
+However, degenerate critical points are an unavoidable feature with gauge symmetry \footnote{Gauge transformations preserve the action $S^{\text{naive}}$ and the equations of motion.}
+\begin{equation*}
+  \underbrace{\Gcal \acts \Fcal.}_{\text{nonlinear action}}
+\end{equation*}
+
+\begin{example}
+  Consider Yang-Mills with gauge group $G$ and trivial gauge bundle $M \times G \to M$.
+  The space of fields is
+  \begin{equation*}
+    \Fcal(M) = \Omega^1 (M, \gfrak), \qquad \gfrak = \Lie (G)
+  \end{equation*}
+  and the group of gauge transformations
+  \begin{equation*}
+    \Gcal = \Aut (M \times G \longrightarrow M)
+    \cong \Map (M, G)
+  \end{equation*}
+  where
+  \begin{equation*}
+    \Lie \Gcal \cong \Map(M, \gfrak) = \Omega^0 (M, \gfrak).
+  \end{equation*}
+  Instead of $\Gcal \acts \Fcal(M)$, we focus on the action of the Lie algebra of gauge transformations
+  \begin{equation*}
+    \Lie (\Gcal) \acts \Fcal(M).
+  \end{equation*}
+  Adopting the standard notation, we write that $c \in \Omega^0 (M, \gfrak)$ acts on $A \in \Omega^1 (M, \gfrak)$ by
+  \begin{equation*}
+    c \cdot A = \drm c + [c, A].
+  \end{equation*}
+\end{example}
+
+\begin{exercise}
+  Check that
+  \begin{equation*}
+    S_{\text{naive}}^{\text{YM}}
+    = \int \langle F_A, F_A \rangle \drm \text{vol}
+  \end{equation*}
+  is invariant under infinitesimal gauge transformations.
+\end{exercise}

@@ -5,8 +5,8 @@
 \documentclass[a4paper, 12pt, oneside]{memoir}
 
 % ── Style ─────────────────────────────────────────────────────────────
-\setulmarginsandblock{3cm}{3cm}{*}
-\setlrmarginsandblock{3cm}{3cm}{*}
+\setulmarginsandblock{2.25cm}{2cm}{*}
+\setlrmarginsandblock{3.25cm}{3.25cm}{*}
 \checkandfixthelayout
 
 \chapterstyle{dash}
@@ -41,16 +41,22 @@
 
 % ── Theorem environments ──────────────────────────────────────────────
 \usepackage{mathtools}
-\usepackage[hyperref]{ntheorem}
+\usepackage[hyperref, thmmarks]{ntheorem}
 
 \theoremheaderfont{\sffamily\bfseries}
 \theorembodyfont{\upshape}
 \theoremseparator{.}
+\theoremsymbol{}
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
 \newtheorem{example}{Example}
 \newtheorem{exercise}{Exercise}
 \newtheorem{fact}{Fact}
+\theoremstyle{nonumberplain}
+\theoremheaderfont{\sffamily\bfseries}
+\newtheorem{remark}{Remark}
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem{proof}{Proof}
 
 % ── Symbols ───────────────────────────────────────────────────────────
 \usepackage{slashed}
@@ -61,8 +67,10 @@
 
 \newcommand{\Ecal}{\mathcal{E}}
 \newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Gcal}{\mathcal{G}}
 \newcommand{\Lcal}{\mathcal{L}}
 \newcommand{\Ocal}{\mathcal{O}}
+\newcommand{\Tcal}{\mathcal{T}}
 
 \newcommand{\Xfrak}{\mathfrak{X}}
 \newcommand{\gfrak}{\mathfrak{g}}
@@ -78,12 +86,16 @@
 \newcommand{\hrm}{\mathrm{h}}
 \newcommand{\Hrm}{\mathrm{H}}
 \newcommand{\dd}{\, \mathrm{d}}
+\newcommand{\DD}{\, \mathrm{D}}
 
 \DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Map}{Map}
 \DeclareMathOperator{\Crit}{Crit}
 \DeclareMathOperator{\Graph}{Graph}
 \DeclareMathOperator{\PV}{PV}
 \DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Lie}{Lie}
 \DeclareMathOperator{\hquot}{/\mkern-6mu/}
 
 \newcommand{\hodge}{{\star}}
@@ -91,6 +103,8 @@
 \newcommand{\formalpow}[1]{[\![ {#1} ]\!]}
 
 \newcommand{\dCrit}{\Crit^{\mathrm{h}}}
+
+\newcommand{\acts}{ \ \rotatebox[origin=c]{-90}{$\circlearrowright$} \ }
 
 % ── Title Page ────────────────────────────────────────────────────────
 \title{\sffamily\bfseries Quantum Field Theory for Mathematicians}
@@ -102,13 +116,14 @@
 \firmlists
 
 % ── Setup tikz colors ─────────────────────────────────────────────────
-\include{colors.tex}
+\input{colors.tex}
 
 % ── Content ───────────────────────────────────────────────────────────
-\include{lecture1.tex}
-\include{lecture2.tex}
-\include{lecture3.tex}
-\include{lecture5.tex}
+\input{lecture1.tex}
+\input{lecture2.tex}
+\input{lecture3.tex}
+\input{lecture4.tex}
+\input{lecture5.tex}
 
 % ── Bibliography ──────────────────────────────────────────────────────
 \sloppy
