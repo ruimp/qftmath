@@ -1,0 +1,25 @@
+\documentclass{standalone}
+
+% Load tikz
+\usepackage{tikz}
+\usetikzlibrary{cd}
+\tikzset{>={Straight Barb[scale=.8]}}
+\tikzcdset{arrow style=tikz, diagrams={>={Straight Barb[scale=.8]}}}
+
+\begin{document}
+% ── Load colors ───────────────────────────────────────────────────────
+\input{colors.tex} 
+
+\begin{tikzpicture}
+  \draw[ultra thick, fill=green1, color=green1] (-3.1, 0) circle (5pt);
+  \draw[ultra thick, fill=green1, color=green1] (-1.741, 0) circle (5pt);
+  \draw[ultra thick, fill=red1, color=red1] (1.15, 0) circle (5pt);
+  \draw[ultra thick, fill=green1, color=red1] (3.18, 0) circle (5pt);
+  \draw[line width=1pt, ->] (-4.5, 0) -- (4.5, 0);
+  \draw[line width=1pt, domain=-3.37:3.192, smooth, variable=\x]
+  plot ( {\x}, {.3*sin(2*deg(\x))*\x*\x-.3} );
+  \draw[line width=1pt, domain=3.192:3.4, smooth, variable=\x]
+  plot ( {\x}, {-.3*sin(2*deg(\x))*\x*\x+.3} );
+\end{tikzpicture}
+
+\end{document}

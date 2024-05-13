@@ -75,20 +75,22 @@
 \newcommand{\kbold}{\pmb{k}}
 
 \newcommand{\drm}{\mathrm{d}}
+\newcommand{\hrm}{\mathrm{h}}
 \newcommand{\Hrm}{\mathrm{H}}
 \newcommand{\dd}{\, \mathrm{d}}
+
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Crit}{Crit}
+\DeclareMathOperator{\Graph}{Graph}
+\DeclareMathOperator{\PV}{PV}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\hquot}{/\mkern-6mu/}
 
 \newcommand{\hodge}{{\star}}
 \newcommand{\bigslant}[2]{{\left.\raisebox{.2em}{$#1$}\middle/\raisebox{-.2em}{$#2$}\right.}}
 \newcommand{\formalpow}[1]{[\![ {#1} ]\!]}
 
-\DeclareMathOperator{\tr}{tr}
-\DeclareMathOperator{\Crit}{Crit}
-\DeclareMathOperator{\dCrit}{dCrit}
-\DeclareMathOperator{\Graph}{Graph}
-\DeclareMathOperator{\PV}{PV}
-\DeclareMathOperator{\Sym}{Sym}
-\DeclareMathOperator{\hquot}{/\mkern-6mu/}
+\newcommand{\dCrit}{\Crit^{\mathrm{h}}}
 
 % ── Title Page ────────────────────────────────────────────────────────
 \title{\sffamily\bfseries Quantum Field Theory for Mathematicians}
@@ -98,6 +100,9 @@
 \begin{document}
 \maketitle
 \firmlists
+
+% ── Setup tikz colors ─────────────────────────────────────────────────
+\include{colors.tex}
 
 % ── Content ───────────────────────────────────────────────────────────
 \include{lecture1.tex}

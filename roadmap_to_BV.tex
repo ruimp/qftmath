@@ -3,10 +3,14 @@
 % ╰──────────────────────────────────────────────────────────╯
 \documentclass{standalone}
 
+% Load tikz
 \usepackage{tikz}
 \usetikzlibrary{cd}
+\tikzset{>={Straight Barb[scale=.8]}}
+\tikzcdset{arrow style=tikz, diagrams={>={Straight Barb[scale=.8]}}}
 
 \begin{document}
+
 \begin{tikzpicture}
   \draw[thick, domain=-7:7, smooth, variable=\x] plot ( {\x}, {0.15*sin(deg(\x+2.2))} );
   \node at (-6, 1.2) {
@@ -87,5 +91,5 @@
   \draw[thick] (3.85, 0.65) -- (4.2, 0.02);
   \draw[fill] (3.85, 0.65) circle (.19pt);
 \end{tikzpicture}
-\end{document}
 
+\end{document}
