@@ -6,7 +6,7 @@ We want to sketch how to go from the Yang-Mills action
 \end{equation*}
 to the Yang-Mills classical BV theory
 \begin{equation*}
-  \begin{tikzcd}[sep=large]
+  \begin{tikzcd}
     \underbrace{\Omega^0 (M, \gfrak)}_{\text{ghosts}}^{-1}
     \arrow[r, "\drm"] &
     \underbrace{\Omega^1 (M, \gfrak)}_{\text{fields}}^{0}
@@ -30,19 +30,23 @@ is the $-1$-shifted symplectic structure. There are some points to motivate:
   \item \textbf{ghosts:} coming from taking the derived coinvariants of $\gfrak \curvearrowright V$.
 \end{enumerate}
 
-For Yang-Mills the manifold $M^n$ is spacetime and $\Omega^1(M, \gfrak)$ is the space of fields. In what follows, let $M$ be the space of fields. Recall that
+For Yang-Mills spacetime is a manifold $M^n$ and $\Omega^1(M, \gfrak)$ is the space of fields.
+However, in what follows, let $M$ be the space of fields.
+Recall that
 \begin{align*}
   \Crit(S) &= \bigl\{ p \in M \bigm| \drm S_p = 0 \bigr\} \\
            &= \Graph (\drm S) \cap M
 \end{align*}
 in $T^* M$. Dually
 \begin{equation*}
-  \Ocal \bigl( \Crit(S) \bigr)
-  = \Ocal \bigl( \Graph (\drm S) \bigr) \otimes_{\Ocal(T^* M)} \Ocal(M).
+  \Oscr \bigl( \Crit(S) \bigr)
+  = \Oscr \bigl( \Graph (\drm S) \bigr) \otimes_{\Oscr(T^* M)} \Oscr(M).
 \end{equation*}
-By homological yoga, taking the derived intersection means that we replace the tensor product $\otimes$ with the derived tensor product $\otimes^{\Lbb}$. To find $\dCrit (S)$ we resolve either $\Ocal \bigl( \Graph (\drm S) \bigr)$ or $\Ocal(M)$ as $\Ocal(T^* M)$-modules. Last time we wrote the Koszul complex
+By homological yoga, taking the derived intersection means that we replace the tensor product $\otimes$ with the derived tensor product $\otimes^{\Lbb}$.
+To find $\dCrit (S)$ we resolve either $\Oscr \bigl( \Graph (\drm S) \bigr)$ or $\Oscr(M)$ as $\Oscr(T^* M)$-modules. 
+Last time, we wrote the Koszul complex
 \begin{equation*}
-  K^{-p} = \PV^p (M) \otimes_{\Ocal(M)} \Ocal (T^* M)
+  K^{-p} = \PV^p (M) \otimes_{\Oscr(M)} \Oscr (T^* M)
 \end{equation*}
 where $\PV^p = \bigwedge^p \Xfrak(M)$ and differential
 \begin{equation*}
@@ -52,28 +56,28 @@ where $\PV^p = \bigwedge^p \Xfrak(M)$ and differential
 \end{equation*}
 
 \begin{exercise}
-  Check that $\Hrm^0 (K^{\bullet}, Q) \cong \Ocal \bigl( \Graph (\drm S) \bigr)$, so
+  Check that $\Hrm^0 (K^{\bullet}, Q) \cong \Oscr \bigl( \Graph (\drm S) \bigr)$, so
   \begin{equation*}
-    \dCrit (S) \cong K^{\bullet} \otimes_{\Ocal(T^* M)} \Ocal (M) \cong \PV^{\bullet} (M)
+    \dCrit (S) \cong K^{\bullet} \otimes_{\Oscr(T^* M)} \Oscr (M) \cong \PV^{\bullet} (M)
   \end{equation*}
-  and thus $\Ocal \bigl( \dCrit(S) \bigr) \simeq (\PV^\bullet, - \iota_{\drm S})$.
+  and thus $\Oscr \bigl( \dCrit(S) \bigr) \simeq (\PV^\bullet, - \iota_{\drm S})$.
 \end{exercise}
 
 \begin{exercise}
-   Show that $\Hrm^0 \Ocal( \dCrit ) \cong \Ocal (\Crit)$.
+   Show that $\Hrm^0 \Oscr( \dCrit ) \cong \Oscr (\Crit)$.
 \end{exercise}
 
-We can enhance $\Ocal \bigl( \dCrit (S) \bigr)$ to a sheaf on $M$. Following Grothendieck
+We can enhance $\Oscr \bigl( \dCrit (S) \bigr)$ to a sheaf on $M$. Following Grothendieck
 \begin{equation*}
   \dCrit(S) = \bigl( M, \PV_M^\bullet, - \iota_{\drm S} \bigr)
 \end{equation*}
 is an example of a \textbf{dg manifold}.
 
 \begin{definition}
-  A dg manifold is a smooth manifold $M$ with a sheaf $\Ocal_M$ of \textbf{dg commutative algebras} (DGCA) locally isomorphic to $\Ocal_M(U) \cong \bigwedge \Ecal (U)$ where $\Ecal$ are the smooth sections of $E \rightarrow M$.
+  A dg manifold is a smooth manifold $M$ with a sheaf $\Oscr_M$ of \textbf{dg commutative algebras} (DGCAs) locally isomorphic to $\Oscr_M(U) \cong \bigwedge \Ecal (U)$, where $\Ecal$ are the smooth sections of $E \rightarrow M$.
 \end{definition}
 
-Ignoring the differential, we get a sheaf $(M, \PV_M^\bullet)$ on $M$ such that
+Ignoring the differential, we get a sheaf $\bigl(M, \PV_M^\bullet\bigr)$ on $M$ such that
 \begin{equation*}
   \PV_M = \bigwedge \Xfrak_M \cong \Sym \Xfrak[1].
 \end{equation*}
@@ -84,14 +88,14 @@ The underlying graded manifold of $\dCrit(S)$ is
 displaying the following properties:
 \begin{enumerate}[i)]
   \item the graded manifold $T^*[-1]M$ is a $-1$-shifted symplectic graded manifold just as $T^*M$ is a $0$-shifted symplectic manifold;
-  \item Induced from the $-1$-shifted symplectic structure we get a $1$-shifted Poisson bracket on $\Ocal \bigl( T^* [-1] M \bigr) = \PV(M)$ known as the \textbf{Schouten bracket}
+  \item Induced from the $-1$-shifted symplectic structure we get a $1$-shifted Poisson bracket on $\Oscr \bigl( T^* [-1] M \bigr) = \PV(M)$ known as the \textbf{Schouten bracket}
   \begin{align*}
     \{ f, g \} &= 0, \\
     \{v, f \} &= v f, \\
     \{ v, w \} &= [v, w], \\
     \{u, v \wedge w \} &= \{u, v\} \wedge w + v \wedge \{ u, w \}
   \end{align*}
-for $f, g \in \Ocal(M)$ and $u, v, w \in \PV^{-1}(M)$.
+for $f, g \in \Oscr(M)$ and $u, v, w \in \PV^{-1}(M)$.
 \end{enumerate}
 
 \begin{exercise}
@@ -99,7 +103,7 @@ for $f, g \in \Ocal(M)$ and $u, v, w \in \PV^{-1}(M)$.
 \end{exercise}
 
 \begin{definition}
-  A $\Pbb_0$ algebra $\bigl( A, \drm, \{ \cdot, \cdot \} \bigr)$ is a DGCA $(A, \drm)$ with a $-1$-shifted Poisson bracket $\{ \cdot, \cdot \}: A \otimes A \rightarrow A$ obeying:
+  A $\Pbb_0$ algebra $\bigl( A, \drm, \{ \cdot, \cdot \} \bigr)$ is a DGCA $(A, \drm)$ equipped with a $-1$-shifted Poisson bracket $\{ \cdot, \cdot \}: A \otimes A \rightarrow A$ obeying:
   \begin{enumerate}[i)]
     \item \textbf{graded skew-symmetry:}
       \begin{equation*}
@@ -122,5 +126,5 @@ for $f, g \in \Ocal(M)$ and $u, v, w \in \PV^{-1}(M)$.
 \end{definition}
 
 \begin{exercise}
-  Check that the Schouten bracket defines a $\Pbb_0$ algebra on $\Ocal\bigl(T^*[-1] M \bigr)$.
+  Check that the Schouten bracket defines a $\Pbb_0$ algebra on $\Oscr\bigl(T^*[-1] M \bigr)$.
 \end{exercise}
