@@ -1,0 +1,139 @@
+\chapter{Lecture 6}
+
+Last time we discussed \textbf{perturbative classical BV gauge theory}. We had
+\begin{equation*}
+  \Lcal \acts \Fcal
+\end{equation*}
+with $S_{\text{naive}} \in \Oscr_{\text{loc}}(\Fcal)$. The recipe is:
+\begin{enumerate}[i)]
+  \item take the \textbf{stacky quotient}
+  \begin{equation*}
+    \doublequotient{\Fcal}{\Lcal} = \Lcal[1] \oplus \Fcal
+  \end{equation*}
+  with a vector field $Q_{\text{CE}}$.
+  The condition that $S_{\text{naive}}$ is gauge-invariant is equivalent to
+  \begin{equation*}
+    Q_{\text{CE}} S_{\text{naive}} = 0;
+  \end{equation*}
+  \item take the \textbf{derived critical locus}
+  \begin{equation*}
+    T^* [-1] \Bigl( \doublequotient{\Fcal}{\Lcal} \Bigr)
+  \end{equation*}
+  with differential $\{ S_{\text{naive}}, \cdot \}$.
+  The underlying space is
+  \begin{equation*}
+    \Lcal[1] \oplus \Fcal \oplus \bigl( \Lcal[1] \oplus \Fcal \bigr)^{\vee}[-1]
+    =\Lcal [1] \oplus \Fcal \oplus \Fcal^{\vee}[-1] \oplus \Lcal^{\vee}[-2].
+  \end{equation*}
+  \item obtain the \textbf{BV action} $S$ satisfying the CME
+  \begin{equation*}
+    \{ S, S \} = 0
+  \end{equation*}
+  and incorporate (somehow) $S_{\text{naive}}$ and $Q_{\text{CE}}$.
+  This means that
+  \begin{equation*}
+    S_{\text{naive}} = S \big|_{\Fcal},
+    \qquad \text{and} \qquad
+    Q_{\text{CE}} = \{ S, \cdot \} \big|_{\Lcal[1] \oplus \Fcal}.
+  \end{equation*}
+\end{enumerate}
+
+\begin{fact}
+  The vector field $Q_{\text{CE}}$ is Hamiltonian, i.e.
+  \begin{equation*}
+    Q_{\text{CE}} = \{ S_{\text{CE}}, \cdot \}
+  \end{equation*}
+  with respect to the $-1$-shifted symplectic structure, for some $S_{\text{CE}}$.
+  As such, we can define
+  \begin{equation*}
+    S = S_{\text{naive}} + S_{\text{CE}}.
+  \end{equation*}
+\end{fact}
+
+For Yang-Mills on an oriented Riemannian $n$-manifold, with trivial bundle $M \times G \to M$ and $\gfrak = \Lie (G)$, $\Ecal$ looks like
+\begin{equation*}
+  \begin{tikzcd}
+    \Omega^0(M, \gfrak) \arrow[r] &
+    \Omega^1 (M, \gfrak) \arrow[r] &
+    \Omega^{n-1} (M, \gfrak) \arrow[r] &
+    \Omega^n (M, \gfrak)
+  \end{tikzcd}
+\end{equation*}
+and the we write the action
+\begin{equation*}
+  S_{\text{naive}} (A) = \int_M \frac{1}{4} \langle F_A, F_A \rangle.
+\end{equation*}
+%TODO: Write Q_CE and compute S_CE.
+
+We compute that
+\begin{equation*}
+  S_{\text{CE}}(c, A, A^*, c^*)
+  = \int_M \langle \drm_A c, A^* \rangle + \frac{1}{2} \langle [c, c], c^* \rangle.
+\end{equation*}
+Choose bases $\{ T_a \}$ for $\gfrak$ and $\{ e_i \}$ for $V$.
+An element of $gfrak[1] \oplus V$ can be written
+\begin{equation*}
+  X^a T_a [1] + v^i e_i, \qquad  X^a, v^i \in \Rbb.
+\end{equation*}
+Let $\xi^a$ be the linear coordinate corresponding to $T_a [1]$ and $x^i$ corresponding to $e_i$.
+Note that $\xi^a$ has degree $+1$.
+
+\begin{theorem}[Berezin, Leites]
+  Consider
+  \begin{equation*}
+    \Der \Bigl( \Oscr(\Rbb^n), \bigwedge  W^{\vee} \Bigr)
+  \end{equation*}
+  where $\{ \theta_a \}$ is a basis of $W$, and $\theta^a$ denotes the respective dual basis elements. Then
+  \begin{equation*}
+    \Der \Bigl( \Oscr(\Rbb^n), \bigwedge W^{\vee} \Bigr)
+    = \Oscr(\Rbb^n) \biggl\{ \frac{\partial}{\partial x^i}, \frac{\partial}{\partial \theta^i} \biggr\}
+  \end{equation*}
+  where $\frac{\partial}{\partial \theta^i}$ is the degree $-1$ derivation such that
+  \begin{equation*}
+    \frac{\partial}{\partial \theta^i} \theta^{1} \dots \theta^{n}
+    = (-1)^{i+1} \theta^1 \dots \hat{\theta}^k \dots \theta^n \delta_{i,k}.
+   \end{equation*}
+\end{theorem}
+
+The idea of the computation is to determine the coefficients of the derivation $Q_{CE}$ by computing $Q_{\text{CE}} x^i$ and $Q_{\text{CE}} \xi^a$.
+We obtain
+\begin{equation*}
+  Q_{\text{CE}} = \xi^a \rho_a^i \frac{\partial}{\partial x^i}
+  \Bigl( - \underbrace{\frac{1}{2} f_{bc}^a \xi^b \xi^c \frac{\partial}{\partial \xi^a}}_{\frac{1}{2} [c, c]} \Bigr)
+\end{equation*}
+where $\rho: \gfrak \to \Xfrak(V)$ and $[T_a, T_b] = f_{a, b}^c T_c$.
+
+\begin{definition}
+  A \textbf{perturbative classical BV theory} consists of the data:
+  \begin{enumerate}[i)]
+    \item a graded vector bundle $E \to M$;
+    \item a $-1$-shifted symplectic structure
+    \begin{equation*}
+      E \boxtimes E \longrightarrow \Dens M;
+    \end{equation*}
+    \item a local action functional $S \in \Oscr_{\text{loc}}(\Ecal)$ that is at least quadratic and satisfies the CME.
+  \end{enumerate}
+  Let $\Ecal$ be the topological vector space (TVS) of global smooth sections, and $\Ecal_c$ the TVS of compactly supported sections.
+  Then $\Oscr(\Ecal)$ is the completion of the symmetric algebra on $\Ecal_c^{\vee}$.
+  We define
+  \begin{equation*}
+    \Oscr(\Ecal)_{\text{loc}} (\Ecal) \subseteq \Oscr(\Ecal)
+  \end{equation*}
+  where $F \in \Oscr_{\text{loc}} (\Ecal)$ is a sum of terms of the form
+  \begin{equation*}
+    e \in \Ecal_c \longmapsto
+    \int_M \Drm_1 e \dots \Drm_n e \Omega
+  \end{equation*}
+  for $\Drm_i \colon \Ecal \to \Crm^{\infty} (M)$ and $\Omega$ a density on $M$.
+\end{definition}
+
+\begin{proposition}
+  For a classical BF theory $\Ecal$ we can write
+  \begin{equation*}
+    S = \int_M \langle e, Q e \rangle + I(e)
+  \end{equation*}
+  where $Q \colon \Ecal \to \Ecal$ is a differential operator of degree $+1$, squares to zero, and $I \in \Oscr_{\text{loc}}(\Ecal)$ is at least cubic and satisfies the QME
+  \begin{equation*}
+    Q I + \frac{1}{2} \{ I, I \} = 0.
+  \end{equation*}
+\end{proposition}

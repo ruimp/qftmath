@@ -47,6 +47,7 @@
 \theorembodyfont{\upshape}
 \theoremseparator{.}
 \theoremsymbol{}
+\newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
 \newtheorem{example}{Example}
@@ -60,6 +61,9 @@
 
 % ── Symbols ───────────────────────────────────────────────────────────
 \usepackage{slashed}
+
+% ── Quotients ─────────────────────────────────────────────────────────
+\usepackage{faktor}
 
 % ── Macros ────────────────────────────────────────────────────────────
 \newcommand{\Escr}{\mathscr{E}}
@@ -84,6 +88,8 @@
 
 \newcommand{\drm}{\mathrm{d}}
 \newcommand{\hrm}{\mathrm{h}}
+\newcommand{\Crm}{\mathrm{C}}
+\newcommand{\Drm}{\mathrm{D}}
 \newcommand{\Hrm}{\mathrm{H}}
 \newcommand{\dd}{\, \mathrm{d}}
 \newcommand{\DD}{\, \mathrm{D}}
@@ -96,14 +102,25 @@
 \DeclareMathOperator{\PV}{PV}
 \DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Dens}{Dens}
 \DeclareMathOperator{\hquot}{/\mkern-6mu/}
 
+% ── hodge star ────────────────────────────────────────────────────────
 \newcommand{\hodge}{{\star}}
+% ── big quotient ──────────────────────────────────────────────────────
 \newcommand{\bigslant}[2]{{\left.\raisebox{.2em}{$#1$}\middle/\raisebox{-.2em}{$#2$}\right.}}
+% ── homotopy quotient ─────────────────────────────────────────────────
+\newcommand*{\doublequotient}[2]{
+  \raisebox{0.5\height}{\ensuremath{#1}}
+  \mkern-5mu\diagup\mkern-12mu\diagup\mkern-4mu
+  \raisebox{-0.5\height}{\ensuremath{#2}}
+}
+% ── formal polynomials ────────────────────────────────────────────────
 \newcommand{\formalpow}[1]{[\![ {#1} ]\!]}
-
+% ── homotopy critical locus ───────────────────────────────────────────
 \newcommand{\dCrit}{\Crit^{\mathrm{h}}}
-
+% ── group action ──────────────────────────────────────────────────────
 \newcommand{\acts}{ \ \rotatebox[origin=c]{-90}{$\circlearrowright$} \ }
 
 % ── Title Page ────────────────────────────────────────────────────────
@@ -124,6 +141,7 @@
 \input{lecture3.tex}
 \input{lecture4.tex}
 \input{lecture5.tex}
+\input{lecture6.tex}
 
 % ── Bibliography ──────────────────────────────────────────────────────
 \sloppy
