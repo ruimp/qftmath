@@ -6,7 +6,7 @@
 
 Define and use the Feynman ``path'' integral
 \begin{equation*}
-  \int_{\phi \in \Fcal} e^{-\frac{S (\phi)}{\hbar}}
+  \int_{\phi \in \Fcal} e^{-\frac{S (\phi)}{\hbar}} \, D\phi .
 \end{equation*}
 (Euclidean field theory)
 
@@ -20,10 +20,9 @@ track: we will produce a formal power series in $\hbar$.
   (in Algebraic Geometry speak), i.e., in {\em formal power series},
   i.e., {\em infinitesimally}.
 \item Now $M$ is going to be a finite dimensional manifold, denoting space-time. E.g.,
-  \begin{align*}
-    M&=\Rbb^d \intertext{or} \\
-    M&=\mathrm{pt}
-  \end{align*}
+  \[
+    M = \Rbb^d, \mbox{ or } M = \mathrm{pt}.
+  \]
 \item $\Fcal$ always denotes the naive fields, a sheaf of vector
   spaces on $M$; specifically, sections of some vector bundle
   $F\longrightarrow M$.
@@ -36,7 +35,7 @@ track: we will produce a formal power series in $\hbar$.
     graded} vector spaces over $M$, sections of a graded vector bundle
   $E\longrightarrow M$. $\Ecal^0 (M)=\Fcal (M)$.
 
-  In the Yang-Mills example, where $d=\mathrm{dim} M$
+  In the Yang-Mills example, where $d=\dim M$
   \begin{equation*}
     \Ecal(M) = \underbrace{\Omega^0 (M,\gfrak)}_{\text{``ghosts''}}^{-1}
     \oplus\underbrace{\Omega^1(M,\gfrak)}_{\text{``fields''}}^{0}

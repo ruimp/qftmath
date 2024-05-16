@@ -31,7 +31,7 @@
 \tikzcdset{arrow style=tikz, diagrams={>={Straight Barb[scale=.8]}}}
 
 % ── Bibliography ──────────────────────────────────────────────────────
-\usepackage{hyperref}
+\usepackage[breaklinks=true,hidelinks]{hyperref}
 \usepackage[backend=biber, style=alphabetic]{biblatex}
 \addbibresource{library.bib}
 
@@ -64,6 +64,9 @@
 
 % ── Quotients ─────────────────────────────────────────────────────────
 \usepackage{faktor}
+
+% ── Date format ───────────────────────────────────────────────────────
+\usepackage[british]{datetime2}
 
 % ── Macros ────────────────────────────────────────────────────────────
 \newcommand{\Escr}{\mathscr{E}}
@@ -124,18 +127,41 @@
 \newcommand{\acts}{ \ \rotatebox[origin=c]{-90}{$\circlearrowright$} \ }
 
 % ── Title Page ────────────────────────────────────────────────────────
-\title{\sffamily\bfseries Quantum Field Theory for Mathematicians}
-\author{}
-\date{}
+\title{{\sffamily\bfseries Quantum Field Theory for Mathematicians}\\[1em]
+{\small Notes for a learning seminar on the BV quantization of Yang--Mills theory}\\[-0.5em]
+{\small following Kevin Costello.}\\
+{\small \url{http://math.tecnico.ulisboa.pt/~jhuerta/qft2024/}}
+}
+\author{
+\small{Seminar lead by}\\
+John Huerta\\[1em]
+\small{Notes by}\\
+Rui Peixoto and Björn Gohla
+}
+\date{
+{\small Notes revised on}\\
+\today}
 
 \begin{document}
+
 \maketitle
+\thispagestyle{empty}
 \firmlists
+
 
 % ── Setup tikz colors ─────────────────────────────────────────────────
 \input{colors.tex}
 
 % ── Content ───────────────────────────────────────────────────────────
+\newpage
+\thispagestyle{empty}
+\begin{vplace}[0.7]
+\begin{center}
+\emph{Page intentionally left blank.}
+\end{center}
+\end{vplace}
+\newpage
+
 \input{lecture1.tex}
 \input{lecture2.tex}
 \input{lecture3.tex}

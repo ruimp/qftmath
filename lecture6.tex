@@ -78,22 +78,22 @@ An element of $gfrak[1] \oplus V$ can be written
 Let $\xi^a$ be the linear coordinate corresponding to $T_a [1]$ and $x^i$ corresponding to $e_i$.
 Note that $\xi^a$ has degree $+1$.
 
-\begin{theorem}[Berezin, Leites]
+\begin{proposition}[Berezin, Leites]
   Consider
   \begin{equation*}
-    \Der \Bigl( \Oscr(\Rbb^n), \bigwedge  W^{\vee} \Bigr)
+    \Der \Bigl( \Oscr(\Rbb^n) \otimes \bigwedge  W^{\vee} \Bigr)
   \end{equation*}
   where $\{ \theta_a \}$ is a basis of $W$, and $\theta^a$ denotes the respective dual basis elements. Then
   \begin{equation*}
-    \Der \Bigl( \Oscr(\Rbb^n), \bigwedge W^{\vee} \Bigr)
-    = \Oscr(\Rbb^n) \biggl\{ \frac{\partial}{\partial x^i}, \frac{\partial}{\partial \theta^i} \biggr\}
+    \Der \Bigl( \Oscr(\Rbb^n) \otimes \bigwedge W^{\vee} \Bigr)
+    = \Bigl( \Oscr(\Rbb^n) \otimes \bigwedge W^{\vee} \Bigr) \biggl\{ \frac{\partial}{\partial x^i}, \frac{\partial}{\partial \theta^i} \biggr\}
   \end{equation*}
   where $\frac{\partial}{\partial \theta^i}$ is the degree $-1$ derivation such that
   \begin{equation*}
     \frac{\partial}{\partial \theta^i} \theta^{1} \dots \theta^{n}
     = (-1)^{i+1} \theta^1 \dots \hat{\theta}^k \dots \theta^n \delta_{i,k}.
    \end{equation*}
-\end{theorem}
+\end{proposition}
 
 The idea of the computation is to determine the coefficients of the derivation $Q_{CE}$ by computing $Q_{\text{CE}} x^i$ and $Q_{\text{CE}} \xi^a$.
 We obtain
