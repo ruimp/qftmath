@@ -1,0 +1,159 @@
+\chapter{Lecture 7}
+
+\section{Quantum BV in Finite Dimensions}
+
+In this section we start out journey towards the quantization of BV theories.
+Recall that out goal is to provide a \textbf{homological approach} to compute integrals of the form
+\begin{equation*}
+  \int_{\phi \in \Fcal} \euler^{- \frac{S}{\hbar}} \DD \phi.
+\end{equation*}
+We will introduce the quantum BV complex as a generalized \textbf{divergence complex}.
+In finite dimensions this is an obscured version of the de Rham complex, where we have the usual homological approach to integration.
+
+For this chapter we return to the finite-dimensional case, which corresponds to the case where spacetime is a point $M = \text{pt}$. Consider:
+\begin{enumerate}[i)]
+  \item a $n$-dimensional \textbf{graded} vector space $V = \sum_{n \in \Zbb} V_n$ of \textbf{fields};
+  \item a $-1$-\textbf{shifted symplectic pairing} $\langle \cdot, \cdot \rangle \colon V \otimes V \to \Rbb$;
+  \item an \textbf{action} $S \in \Oscr(V)$ such that
+    \begin{equation*}
+      \{ S, S \} =  0, \qquad \substack{\text{classical master} \\ \text{equation (CME)}}
+    \end{equation*}
+    where $\{ \cdot, \cdot \} \colon \Oscr(V) \otimes \Oscr(V) \rightarrow \Oscr(V)$ is the $+1$-\textbf{shifted Poisson bracket} induced by the symplectic pairing.
+\end{enumerate}
+Such a setup makes $\bigl( \Oscr(V), \{ \cdot, \cdot \} \bigr)$ into a cochain complex such that
+\begin{equation*}
+  \Hrm^0 \Oscr(V) \cong \Oscr( \Crit (S)).
+\end{equation*}
+
+Passing to the derived critical locus, we have seen that functions on $\dCrit(S)$ form a commutative dg algebra
+\begin{equation*}
+  \Oscr \bigl(\dCrit(S) \bigr) = \bigl( \PV^{\bullet} (V), -\iota_{\drm S} \bigr)
+\end{equation*}
+which we call the \textbf{classical BV complex}. Passing to the quantum version amounts to deforming this complex by changing the differential.
+
+\section{Integration in Finite Dimensions}
+
+Fixing a nonvanishing top form $\mu \in \Omega^{n}(V)$ defines a map
+\begin{align*}
+  \int_V \colon \Oscr(V)
+  &\longrightarrow \Rbb \\
+  f
+  &\longmapsto \int_V f \mu
+\end{align*}
+where we make the necessary assumptions on $\Oscr$ such that $f$ is integrable with respect to $\mu$.
+This map depends only on \textbf{cohomological data}. Explicitly, we have that
+\begin{equation*}
+  \int_M f \mu = \frac{\bigl[f \mu\bigr]}{\bigl[\mu\bigr]}
+\end{equation*}
+where $[\cdot]$ denotes the cohomology class in $\Hrm_{\text{dR}} (V)$.
+Note that the denominator is just a normalizing factor.
+If we pick $\mu \in \Omega^n(V)$ such that $\smallint_V \mu = 1$, computing the integral of $f$ with respect to $\mu$ boils down to computing a class in cohomology
+\begin{equation*}
+  \int_V f \mu = \bigl[f \mu\bigr].
+\end{equation*}
+
+The pairing by integration with $\mu$ is nondegenerate so it defines an isomorphism $\Oscr(V) \to \Omega^n(V)$ which we can extends to an isomorphism of complexes
+\begin{align*}
+  m_\mu \colon \PV^{-k} (V) 
+  &\longrightarrow \Omega^{n - k} (V) \\
+  X
+  &\longmapsto \iota_X \mu.
+\end{align*}
+
+\begin{example}
+  In coordinates, let $\mu = \drm x^1 \wedge \dots \wedge \drm x^n$ and $X = f \frac{\partial}{\partial x^{j_1}} \wedge \dots \wedge \frac{\partial}{\partial x^{j_k}}$. Then
+  \begin{align*}
+    m_{\mu} (X)
+    &= f m_{\mu} \biggl( \frac{\partial}{\partial x^{j_1}} \wedge \dots \wedge \frac{\partial}{\partial x^{j_k}} \biggr) \\
+    &= \sigma f \drm x^1 \dots \drm \hat{x}^{j_i} \dots \drm \hat{x}^{j_k} \dots \drm x^n
+  \end{align*}
+  where the terms $\drm \hat{x}^{j_i}$ are omitted, and $\sigma = \pm 1$ is such that
+  \begin{equation*}
+    \sigma \drm x^1 \dots \drm x^n
+    = \drm x^{j_1} \dots \drm x^{j_k} \wedge \drm x^1 \dots \drm x^n.
+  \end{equation*}
+\end{example}
+
+The \textbf{divergence operator} on $\PV^{\bullet}(V)$
+\begin{equation*}
+  \divergence_\mu = m_\mu^{-1} \drm m_\mu
+\end{equation*}
+is obtained by pulling back the de Rham differential on $\Omega^{\bullet}$ using $\mu$.
+\begin{equation*}
+  \begin{tikzcd}[sep=large]
+    \dots 
+    \arrow[r] &
+    \PV^{-2}(V)
+    \arrow[r, "\divergence_\mu"] \arrow[d, "m_\mu"] &
+    \PV^{-1}(V)
+    \arrow[r, "\divergence_\mu"] \arrow[d, "m_\mu"] &
+    \Oscr(V)
+    \arrow[d, "m_\mu"] \\
+    \dots \arrow[r] &
+    \Omega^{n-2}(V)
+    \arrow[r, "\drm"] &
+    \Omega^{n-1}(V)
+    \arrow[r, "\drm"] &
+    \Omega^{n}(V)
+  \end{tikzcd}
+\end{equation*}
+
+Because it admits this definition in the finite-dimensional case, we say that the divergence complex is an \textit{obscured} version of the usual de Rham complex.
+At this point, one might wonder: why do we not just use the de Rham complex to begin with?
+The point is that, unlike the de Rham complex, the divergence complex generalizes to the infinite-dimensional case.
+
+Recall how before we recovered the space of functions on the critical locus $\Crit(S)$ from $\PV^{\bullet}$ by passing to cohomology in degree $0$.
+This crucial information is encoded in the de Rham complex in degree $n$, where top forms live.
+In infinite dimensions, this data escapes as the de Rham complex ceases to be bounded above.
+However, it still resides in degree $0$ in the divergence complex.
+In this sense, the natural approach in quantum field theory is to generalize the divergence operator to the infinite-dimensional case.
+
+\begin{example}
+  Let $V = \Rbb$ and $\mu_\text{Leb}$ be the Lebesgue measure. A simple computation recovers the usual divergence operator
+  \begin{align*}
+    \divergence_\text{Leb} \biggl( f \frac{\partial}{\partial  x} \biggr)
+    &= m_\mu^{-1} \drm m_\mu \biggl( f \frac{\partial}{\partial x} \biggr) \\
+    &= m_\mu^{-1} \bigl( \drm f\bigr) \\
+    &= m_\mu^{-1} \biggl( \frac{\partial f}{\partial x} \mu \biggr) \\
+    &= \frac{\partial f}{\partial x}.
+  \end{align*}
+  If we write the generator of the vector fields as $\xi = \frac{\partial}{\partial x}$ then
+  \begin{equation*}
+    \divergence_\text{Leb} = \frac{\partial}{\partial x} \frac{\partial}{\partial \xi} = \laplace_{\text{BV}}
+  \end{equation*}
+  takes the form of the usual BV Laplacian.
+  It is straightforward to generalize to the $n$-dimensional case
+  \begin{equation*}
+    \divergence_{\text{Leb}} = \laplace_{\text{BV}}
+    = \sum_{i = 1} \frac{\partial}{\partial x^i} \frac{\partial}{\partial \xi^i}.
+  \end{equation*}
+\end{example}
+
+\begin{example}
+  Consider again $V = \Rbb$ but let $\mu_S$ be a Gaussian measure of the form
+  \begin{equation*}
+    \mu_S = \euler^{-\frac{S}{\hbar}} \mu_\text{Leb}.
+  \end{equation*}
+  In this case, we see that
+  \begin{align*}
+    \divergence_S 
+    &= m_{\mu_S}^{-1} \drm m_{\mu_S} \biggl( f \frac{\partial}{\partial x} \biggr) \\
+    &= m_{\mu_S}^{-1} \drm \Bigl( f \euler^{-\frac{S}{\hbar}} \Bigr) \\
+    &= m_{\mu_S}^{-1} \biggl( \frac{\partial f}{\partial  x} \euler^{-\frac{S}{\hbar}} \mu_\text{Leb}
+    - \frac{1}{\hbar} \frac{\partial S}{\partial x} f \euler^{-\frac{S}{\hbar}} \mu_\text{Leb} \biggr) \\
+    &= \frac{\partial f}{\partial  x} - \frac{1}{\hbar} \frac{\partial S}{\partial  x} f.
+  \end{align*}
+  from which we conclude that
+  \begin{equation*}
+    \divergence_S = - \frac{1}{\hbar} \iota_{\drm S} + \laplace_\text{BV}.
+  \end{equation*}
+  If $\hbar \neq 0$ (and is not formal) we can multiply by $\hbar$ to obtain a differential
+\begin{equation*}
+    \hbar \divergence_S = - \iota_{\drm S} + \hbar \laplace_\text{BV}
+  \end{equation*}
+  on $\PV^{\bullet}(V)$ that we recognize as a deformation of the classical BV differential given by contracting with $\drm S$. Alternatively, we can also write the divergence operator in terms of the Schouten bracket
+  %TODO: reference the Schouten bracket form previous lecture
+  \begin{equation*}
+    \divergence_S = \{ S, \cdot \} + \hbar \laplace_{\text{BV}}.
+  \end{equation*}
+\end{example}
