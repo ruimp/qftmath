@@ -14,7 +14,6 @@
 \renewcommand*{\chapnamefont}{\normalfont\huge\bfseries\sffamily}
 \renewcommand*{\chapnumfont}{\normalfont\huge\bfseries\sffamily}
 \setsecheadstyle{\normalfont\Large\bfseries\sffamily}
-%\renewcommand{\chaptername}{Lecture}
 
 % ── Language ──────────────────────────────────────────────────────────
 \usepackage{polyglossia}
@@ -82,6 +81,7 @@
 \newcommand{\Xfrak}{\mathfrak{X}}
 \newcommand{\gfrak}{\mathfrak{g}}
 
+\newcommand{\kbb}{\mathbb{k}}
 \newcommand{\Rbb}{\mathbb{R}}
 \newcommand{\Cbb}{\mathbb{C}}
 \newcommand{\Lbb}{\mathbb{L}}
@@ -95,6 +95,8 @@
 \newcommand{\Crm}{\mathrm{C}}
 \newcommand{\Drm}{\mathrm{D}}
 \newcommand{\Hrm}{\mathrm{H}}
+\newcommand{\Trm}{\mathrm{T}}
+\newcommand{\Vrm}{\mathrm{V}}
 \newcommand{\dd}{\, \mathrm{d}}
 \newcommand{\DD}{\, \mathrm{D}}
 
@@ -107,6 +109,7 @@
 \DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\Lie}{Lie}
 \DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Stab}{Stab}
 \DeclareMathOperator{\Dens}{Dens}
 \DeclareMathOperator{\hquot}{/\mkern-6mu/}
 \DeclareMathOperator{\divergence}{div}
@@ -115,6 +118,7 @@
 \newcommand{\hodge}{{\star}}
 % ── big quotient ──────────────────────────────────────────────────────
 \newcommand{\bigslant}[2]{{\left.\raisebox{.2em}{$#1$}\middle/\raisebox{-.2em}{$#2$}\right.}}
+\newcommand{\lbigslant}[2]{{\left.\raisebox{-.2em}{$#1$}\middle \backslash \raisebox{.2em}{$#2$}\right.}}
 % ── homotopy quotient ─────────────────────────────────────────────────
 \newcommand*{\doublequotient}[2]{
   \raisebox{0.5\height}{\ensuremath{#1}}
@@ -123,6 +127,9 @@
 }
 % ── formal polynomials ────────────────────────────────────────────────
 \newcommand{\formalpow}[1]{[\![ {#1} ]\!]}
+% ── double bracket expectation value ──────────────────────────────────
+\newcommand{\avg}[1]{\langle \! \langle {#1} \rangle \! \rangle}
+\newcommand{\bigavg}[1]{\bigg \langle \! \bigg \langle {#1} \bigg \rangle \! \bigg \rangle}
 % ── homotopy critical locus ───────────────────────────────────────────
 \newcommand{\dCrit}{\Crit^{\mathrm{h}}}
 % ── group action ──────────────────────────────────────────────────────
@@ -131,6 +138,8 @@
 \newcommand{\bv}{\laplace_{\text{BV}}}
 % ── constants ─────────────────────────────────────────────────────────
 \newcommand{\euler}{\mathrm{e}}
+% ── Matchings ─────────────────────────────────────────────────────────
+\newcommand{\Matchings}{\text{\tiny Matchings}}
 
 % ── Title Page ────────────────────────────────────────────────────────
 \title{{\sffamily\bfseries Quantum Field Theory for Mathematicians}\\[1em]
@@ -163,7 +172,7 @@ Rui Peixoto and Björn Gohla
 \thispagestyle{empty}
 \begin{vplace}[0.7]
 \begin{center}
-\emph{Page intentionally left blank.}
+\textit{Page intentionally left blank.}
 \end{center}
 \end{vplace}
 \newpage
@@ -175,6 +184,7 @@ Rui Peixoto and Björn Gohla
 \input{lecture5.tex}
 \input{lecture6.tex}
 \input{lecture7.tex}
+\input{lecture8.tex}
 
 % ── Bibliography ──────────────────────────────────────────────────────
 \sloppy

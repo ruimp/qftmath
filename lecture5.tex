@@ -77,15 +77,15 @@ representation of $\gfrak$
 \begin{equation*}
   \gfrak\rightarrow\mathfrak{gl} (R)
 \end{equation*}
-over some field $\kbold\in\{\Rbb,\Cbb\}$.
+over some field $\kbb\in\{\Rbb,\Cbb\}$.
 Observe that
 \begin{align*}
   R^{\gfrak}&=\{v\in \Rbb \mid Xv=0 \text{ for all } X\in\gfrak \}\\
-          &=\mathrm{Hom}_{\gfrak} (\kbold,R)
+          &=\mathrm{Hom}_{\gfrak} (\kbb,R)
 \end{align*}
 Derived version $\mathrm{Hom} \rightsquigarrow \Rbb\mathrm{Hom}$.
 
-Try $R^{\mathrm{h}\gfrak}=\Rbb\mathrm{Hom}_{U\gfrak} (\kbold,R)$, where
+Try $R^{\mathrm{h}\gfrak}=\Rbb\mathrm{Hom}_{U\gfrak} (\kbb,R)$, where
 $U$ is the enveloping algebra. I.e.,
 \begin{equation*}
   U\gfrak=\frac{T\gfrak}{x\otimes{}y-y\otimes{}x-[x,y]}
@@ -94,7 +94,7 @@ where $T\gfrak$ is the tensor algebra.
 \begin{fact}
   $\mathrm{Rep_{\gfrak}}\simeq U\gfrak\mathrm{-mod}\,.$
 \end{fact}
-To compute $\Rbb\mathrm{Hom}_{U\gfrak} (\kbold,R)$ we need to resolve $\kbold$
+To compute $\Rbb\mathrm{Hom}_{U\gfrak} (\kbb,R)$ we need to resolve $\kbb$
 or $R$ as $U\gfrak$ modules.
 
 Similar to the Koszul complex
@@ -116,14 +116,14 @@ with differential
 
 With this differential
 \begin{align*}
-  H^0 \left(\Lambda^\bullet\gfrak\otimes U\gfrak\right)&\simeq \kbold\\ %%% use sideset
+  H^0 \left(\Lambda^\bullet\gfrak\otimes U\gfrak\right)&\simeq \kbb\\ %%% use sideset
   H^k \left(\Lambda^\bullet\gfrak\otimes U\gfrak\right)&=0 \qquad \text{for $k<0$}
 \end{align*}
 Hence
 \begin{align*}
-  R^{\mathrm{h}\gfrak}&=\Rbb\mathrm{Hom}_{U\gfrak} (\kbold, R)\\
+  R^{\mathrm{h}\gfrak}&=\Rbb\mathrm{Hom}_{U\gfrak} (\kbb, R)\\
                       &=\mathrm{Hom}_{U\gfrak} (\Lambda^{\bullet}\gfrak\otimes U\gfrak, R)\\
-                      &\simeq\mathrm{Hom}_{\kbold} (\Lambda^{\bullet}\gfrak, R)
+                      &\simeq\mathrm{Hom}_{\kbb} (\Lambda^{\bullet}\gfrak, R)
 \end{align*}
 because $\Lambda^\bullet\gfrak\otimes{}U\gfrak$ is free.
 
@@ -143,7 +143,7 @@ because $\Lambda^\bullet\gfrak\otimes{}U\gfrak$ is free.
 Conclusion. Back to $R=\Ocal (V)$, then
 \begin{align*}
   R^{\mathrm{h}\gfrak}&=\Ocal (V)^{\mathrm{h}\gfrak}\\
-                      &=\mathrm{Hom}_{\kbold} (\Lambda^\bullet\gfrak,\Ocal (V))\\
+                      &=\mathrm{Hom}_{\kbb} (\Lambda^\bullet\gfrak,\Ocal (V))\\
                       &\simeq\Lambda^\bullet\gfrak^*\otimes\Ocal (V)\\
                       &\simeq\Sym (\gfrak^*[-1])\otimes\Sym (V^*)\\
                       &\simeq\Sym (\overset{0}{V^*}\oplus\overset{1}{\gfrak^*[-1]})\\
