@@ -1,0 +1,103 @@
+\chapter{Lecture 9 - Manuel Araújo}
+
+\section{Feynman Integrals - Part 2}
+
+\subsection{Groupoid of graphs with prescribed vertices}
+
+Let $V_d$ be the set of vertices with valency $d \in \Zbb_{>0}$.
+The groupoid $\mathrm{Graphs}_{V_1, \dots, V_D}$ consists of the data:
+\begin{itemize}
+  \item \textbf{objects:} matchings in HE (set of half-edges);
+  \item \textbf{isomorphisms:} collections of morphisms
+    \begin{equation*}
+      \varphi_d \colon V_d \longrightarrow V_d, \qquad 0 \leq d \leq D
+    \end{equation*}
+    and $\varphi \colon HE \to HE$ respecting the incidence maps.
+\end{itemize}
+
+The action of the group
+\begin{equation*}
+  G = \prod_{d = 0}^D
+  \underbrace{(S_d)^{V_d}}_{\substack{
+      \text{permute} \\ \text{half-edges}
+  }} \ltimes 
+  \underbrace{S_{V_d}}_{\substack{
+      \text{permute} \\ \text{vertices}
+  }}
+\end{equation*}
+on $\text{Matchings}_{2m}$ is such that
+\begin{equation*}
+  \Stab_\sigma \cong \Aut \Gamma_\sigma, \qquad \forall \sigma \in \lbigslant{G}{\text{Matchings}_{2m}}
+\end{equation*}
+where $\Gamma_\sigma$ is the graph corresponding to a matching $\sigma$, in the obvious way.
+Fixing $g \in G$ and $\sigma \in \Mrm_{2m}$ defines a \textit{canonical} isomorphism
+\begin{equation*}
+  \Gamma_\sigma \longrightarrow \Gamma_{g \cdot \sigma}
+\end{equation*}
+and we identify $\mathsf{Graphs}_{V_0, \dots, V_D}$ with the \textit{action groupoid} of $G \acts \text{Matchings}_{2m}$.
+
+\begin{example}
+  There is an isomorphism of graphs
+  \begin{equation*}
+    \begin{tikzpicture}[scale = 1.5, baseline=-1mm]
+      % lines
+      \draw[thick] (0, 0) node at (-.3, 0) {$x$} -- (1, 0) node at (1.3, 0) {$y$};
+      \draw[thick] (0, 0) arc (180:0:.5);
+      \draw[thick] (0, 0) arc (-180:0:.5);
+      % nodes
+      \draw[fill=black] (0, 0) circle (2pt);
+      \draw[fill=black] (1, 0) circle (2pt);
+      \node at (0, .35) {$a$};
+      \node at (.25, -.15) {$b$};
+      \node at (0, -.35) {$c$};
+      \node at (1, .35) {$i$};
+      \node at (0.75, -.15) {$j$};
+      \node at (1, -.35) {$k$};
+    \end{tikzpicture}
+    \qquad \underset{
+      \begin{aligned}
+        i &\mapsto j \\ 
+        j &\mapsto i
+      \end{aligned}
+      }{\cong} \qquad
+    \begin{tikzpicture}[scale = 1.5, baseline=-1mm]
+      % lines
+      \draw[thick] plot[smooth, tension=1] coordinates { (0, 0) (.3, 0) (.7, .4) (1, 0) };
+      \draw[thick] plot[smooth, tension=1] coordinates { (0, 0) (.3, .4) (.7, 0) (1, 0) };
+      \draw[thick] (0, 0) arc (-180:0:.5);
+      % nodes
+      \draw[fill=black] (0, 0) circle (2pt);
+      \draw[fill=black] (1, 0) circle (2pt);
+      \node at (-.3, 0) {$x$};
+      \node at (1.25, 0) {$y$};
+      \node at (0, .35) {$a$};
+      \node at (.25, -.15) {$b$};
+      \node at (0, -.35) {$c$};
+      \node at (1, .35) {$j$};
+      \node at (0.75, -.15) {$i$};
+      \node at (1, -.35) {$k$};
+    \end{tikzpicture}
+  \end{equation*}
+  but no such graph isomorphism exists for between the following graphs.
+  \begin{equation*}
+  \begin{tikzpicture}[scale = 1.5, baseline=-1mm]
+    % lines
+    \draw[thick] (0, 0) -- (1, 0);
+    \draw[thick] (0, 0) arc (180:0:.5);
+    \draw[thick] (0, 0) arc (-180:0:.5);
+    % nodes
+    \draw[fill=black] (0, 0) circle (2pt);
+    \draw[fill=black] (1, 0) circle (2pt);
+  \end{tikzpicture}
+  \qquad \ncong \qquad
+  \begin{tikzpicture}[scale =1.5, baseline=-1mm]
+    % lines
+    \draw[thick] (0, 0) -- (1, 0);
+    \draw[thick] (-.25, 0) circle (2.5mm);
+    \draw[thick] (1.25, 0) circle (2.5mm);
+    % nodes
+    \draw[fill=black] (0, 0) circle (2pt);
+    \draw[fill=black] (1, 0) circle (2pt);
+  \end{tikzpicture}
+  \end{equation*}
+\end{example}

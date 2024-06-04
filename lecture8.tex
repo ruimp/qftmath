@@ -66,12 +66,12 @@ corresponding to permutations of the elements in each pair, as well as the order
 \begin{equation*}
   \text{Matchings}_{2m} = \bigslant{S_{2m}}{S_m \ltimes \Zbb_2^m}.
 \end{equation*}
-The size of any orbit is $| \Ocal (\sigma) | = 2^m m!$ so we sum on matchings to obtain
+which we will often abbreviate to just $\Mrm_{2m}$. The size of any orbit is $| \Ocal (\sigma) | = 2^m m!$ so we sum on matchings to obtain
 \begin{align*}
   \avg{x_{i_1} \dots x_{i_{2m}}}
-  &= \sum_{[\sigma]}
+  &= \sum_{\sigma \in \Mrm_{2m}}
   Q_{i_{\sigma_1} i_{\sigma_2}}^{-1} \dots Q_{i_{\sigma_{2m-1}} i_{\sigma_{2m}}}^{-1} \\
-  &= \sum_{[\sigma]} (Q^{-1})^{\otimes m} \circ \sigma \circ \bigl(x_{i_1} \otimes \dots \otimes x_{i_{2m}}\bigr).
+  &= \sum_{\sigma \in \Mrm_{2m}} (Q^{-1})^{\otimes m} \circ \sigma \circ \bigl(x_{i_1} \otimes \dots \otimes x_{i_{2m}}\bigr).
 \end{align*}
 
 \begin{example}
@@ -233,7 +233,7 @@ In general, on $ \avg{ \Psi_1 \otimes \dots \otimes \Psi_r }$ there exists an ac
 therefore we can write
 \begin{equation*}
   \bigavg{\frac{1}{d_1!} \Psi_1 \otimes \dots \otimes \frac{1}{d_r!} \Psi_r}
-  = \sum_{[\sigma]} \frac{1}{\bigl| \Stab_{[\sigma]} \bigr|}
+  = \sum_{[\sigma]} \frac{1}{\bigl| \Stab_{\sigma} \bigr|}
   (Q^{-1})^{\otimes m} \circ \sigma \circ (\Psi_1 \otimes \dots \otimes \Psi_r)
 \end{equation*}
 where
@@ -244,7 +244,7 @@ where
 \begin{example}
   Employing the previous formula we see that
   \begin{equation*}
-    \bigavg{\frac{1}{4!} \Psi} = \frac{1}{\bigl| \Stab_{[\sigma]} \bigr|}
+    \bigavg{\frac{1}{4!} \Psi} = \frac{1}{\bigl| \Stab_{\sigma} \bigr|}
     \begin{tikzpicture}[scale=.5, baseline=4mm]
       % node
       \draw[fill=black] (1.5, .1) circle (1mm);
@@ -395,9 +395,3 @@ where
   \end{equation*}
   where we identify the denominators with number of automorphisms of the respective graph.
 \end{example}
-
-Denote by $\mathsf{Graphs}_{v_0, \dots, v_D}$ the graphs with $v_d$ vertices of valency $0 \leq d \leq D$, where $2m = |HE| = \sum_{d = 0}^D d {v_d}$. There exists a group action
-\begin{equation*}
-  \prod_{d = 0}^D (S_d)^{v_d} \ltimes S_{v_d} \acts \text{Matchings}_{2m}
-\end{equation*}
-with what corresponds to graph isomorphisms.
