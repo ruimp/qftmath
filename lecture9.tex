@@ -7,14 +7,14 @@
 
 Let $V_d$ be the set of vertices with valency $d \in \Zbb_{>0}$.
 The groupoid $\mathrm{Graphs}_{V_1, \dots, V_D}$ consists of the data:
-\begin{itemize}
+\begin{enumerate}[i)]
   \item \textbf{objects:} matchings in HE (set of half-edges);
   \item \textbf{isomorphisms:} collections of morphisms
     \begin{equation*}
       \varphi_d \colon V_d \longrightarrow V_d, \qquad 0 \leq d \leq D
     \end{equation*}
     and $\varphi \colon HE \to HE$ respecting the incidence maps.
-\end{itemize}
+\end{enumerate}
 
 The action of the group
 \begin{equation*}
@@ -125,7 +125,7 @@ and we identify $\mathsf{Graphs}_{V_0, \dots, V_D}$ with the \textit{action grou
     \begin{tikzcd}[sep=small]
     & \Phi_{Q^{-1}, \{{P_d}\}_{d = 0}^D} (\Gamma) \arrow[dr] \arrow[dl] & \\
       \text{label vertices } P_d \arrow[dr] & & \text{label edges } Q^{-1} \arrow[dl] \\
-    & \text{contract} &
+    & \text{contract $\Gamma$} &
   \end{tikzcd}
   \end{equation*}
 \end{example}
@@ -288,3 +288,95 @@ It can be useful to rewrite the usual expression in term of connected graphs. To
   &= \prod_{\gamma \text{ connected}} \exp \biggl( \frac{1}{|\Aut \gamma|} \Phi(\gamma) \biggr) \\
   &= \exp \Biggl( \sum_{\gamma \text{ connected}} \frac{1}{|\Aut \gamma|} \Phi(\gamma) \Biggr).
 \end{align*}
+
+\begin{example}
+  We can repeat the same computation summing on connected diagrams
+  \begin{align*}
+    I^p(\lambda)
+    &= \sqrt{2 \pi} \exp \Biggl( 
+      \frac{1}{8} \hspace{-2mm}
+      \begin{tikzpicture}[scale=2, baseline=-1mm]
+        % node
+        \draw[fill=black] (0, 0) circle (.3mm);
+        \node at (.15, 0) {$\lambda$};
+        % lines
+        \draw[thick] (0, 0) to[out=50, in=130, loop] (0, 0);
+        \draw[thick] (0, 0) to[out=230, in=-50, loop] (0, 0);
+      \end{tikzpicture}
+    + \frac{1}{4! 2}
+    \begin{tikzpicture}[scale=2, baseline=-1mm]
+      % node
+      \draw[fill=black] (0, 0) circle (.3mm);
+      \node at (-.12, 0) {$\lambda$};
+      \draw[fill=black] (.6, 0) circle (.3mm);
+      \node at (.72, 0) {$\lambda$};
+      % lines
+      \draw[thick] (.3, 0) circle (3mm);
+      \draw[thick] (0, 0) to[out=60, in=120] (.6, 0);
+      \draw[thick] (0, 0) to[out=-60, in=-120] (.6, 0);
+    \end{tikzpicture}
+    + \frac{1}{2^4} 
+    \begin{tikzpicture}[scale=2, baseline=-1mm]
+      % node
+      \draw[fill=black] (0, 0) circle (.3mm);
+      \draw[fill=black] (.3, 0) circle (.3mm);
+      \node at (0, .2) {$\lambda$};
+      \node at (.3, .2) {$\lambda$};
+      % lines
+      \draw[thick] (0, 0) to[out=-130, in=130, loop] (0, 0);
+      \draw[thick] (.3, 0) to[out=-50, in=50, loop] (.3, 0);
+      \draw[thick] (0, 0) to[out=70, in=110] (.3, 0);
+      \draw[thick] (0, 0) to[out=-70, in=-110] (.3, 0);
+    \end{tikzpicture}
+    + \Oscr \bigl(\lambda^3\bigr) \Biggr) \\
+    &= \sqrt{2 \pi} \exp \biggl( \frac{\lambda}{8} + \frac{\lambda^2}{4!}
+        + \frac{\lambda^2}{16} + \Oscr \bigl( \lambda^3 \bigr) \biggr) \\
+    &= \sqrt{2 \pi} \biggl( 1 + \frac{\lambda}{8} + \frac{\lambda^2}{2 4!}
+        + \frac{\lambda^2}{16} + \frac{\lambda^2}{ 8^2 2}
+        + \Oscr \bigl( \lambda^3 \bigr) \biggr).
+  \end{align*}
+\end{example}
+
+% ── Expectation value of perturbed Gaussian ───────────────────────────
+\subsection{Expectation value of perturbed Gaussian}
+
+To compute expectation values note that
+\begin{align*}
+  \bigavg{\Psi_1 \dots \Psi_r}_\text{pert}
+  &= \frac{
+    \int_{\Rbb^n}^\text{pert} \drm x
+    \euler^{-\frac{1}{2} Q(x, x) + p(x)} \Psi_1(x) \dots \Psi_r (x)
+  }{
+    \int_{\Rbb^n}^\text{pert} \euler^{-\frac{1}{2} Q(x, x) + p(x)}
+  }\\
+  &= \frac{
+    \bigavg{\euler^{p(x)} \Psi_1 \dots \Psi_r}
+  }{
+  \bigavg{\euler^{p(x)}}
+  }
+\end{align*}
+where each term $\Psi_j$ is of the form
+\begin{equation*}
+  \Psi_j = \sum_{d \geq 0} \frac{1}{d!} \Psi_{j, d}
+\end{equation*}
+for $\Psi_{j, d}$ homogeneous polynomials of degree $d$, therefore
+\begin{equation*}
+  \bigavg{\euler^{p(x)} \Psi_1 \dots \Psi_r}
+  = \frac{(2 \pi)^{\frac{n}{2}}}{\sqrt{\det Q}}
+  \sum_{\Gamma} \frac{1}{|\Aut \Gamma|} \Psi(\Gamma)
+\end{equation*}
+where now we are summing over graphs $\Gamma$ colored by $\{0, \dots, r\}$ where each nonzero color appears \textit{exactly once}, and where $\Phi(\Gamma)$ encodes the following procedure.
+\begin{equation*}
+  \begin{tikzcd}
+    & \Phi(\Gamma) \arrow[dl] \arrow[d] \arrow[dr] & \\
+    \substack{\text{label } 0 \text{-colored}\\
+      \text{vertices of valency } d \\
+    \text{by } g_d P_d} \arrow[dr] &
+    \substack{\text{label } j \text{-colored}\\
+      \text{vertices of valency } d \\
+      \text{by } \Psi_{j, d}} \arrow[d] &
+    \substack{\text{label edges}\\
+      \text{by } Q^{-1}} \arrow[dl] \\
+    &\text{\scriptsize contract $\Gamma$}&
+  \end{tikzcd}
+\end{equation*}
