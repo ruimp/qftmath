@@ -275,3 +275,16 @@ therefore
 
 % ── Connected graphs ──────────────────────────────────────────────────
 \subsection{Connected graphs}
+
+It can be useful to rewrite the usual expression in term of connected graphs. To achieve this, we decompose the sum with respect to the number of connected components of the graphs
+\begin{align*}
+  \sum_{\Gamma} \frac{1}{|\Aut \Gamma|} \Phi(\Gamma)
+  &= \overbrace{\sum_{k = 0}^\infty}^{\substack{\text{connected}\\ \text{components}}}
+  \sum_{\gamma_1, \dots, \gamma_k}
+  \overbrace{\sum_{r_1, \dots, r_k = 1}^\infty}^{\text{valencies}}
+  \biggl( \prod_{i=1}^k \frac{1}{r_i! |\Aut \gamma_i|} \biggr) \Phi(\gamma_1)^{r_1} \dots \Phi(\gamma_k)^{r_k} \\
+  &= \underbrace{\prod_{\gamma \text{ connected}}}_{\substack{\text{finitely-many} \\ \text{nonzero valencies}}}
+    \biggl( \sum_{r=0}^\infty \frac{1}{r! |\Aut \gamma|^r} \Phi(\gamma)^r \biggr) \\
+  &= \prod_{\gamma \text{ connected}} \exp \biggl( \frac{1}{|\Aut \gamma|} \Phi(\gamma) \biggr) \\
+  &= \exp \Biggl( \sum_{\gamma \text{ connected}} \frac{1}{|\Aut \gamma|} \Phi(\gamma) \Biggr).
+\end{align*}
