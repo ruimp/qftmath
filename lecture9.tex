@@ -280,7 +280,7 @@ It can be useful to rewrite the usual expression in term of connected graphs. To
 \begin{align*}
   \sum_{\Gamma} \frac{1}{|\Aut \Gamma|} \Phi(\Gamma)
   &= \overbrace{\sum_{k = 0}^\infty}^{\substack{\text{connected}\\ \text{components}}}
-  \sum_{\gamma_1, \dots, \gamma_k}
+  \sum_{\gamma_1 < \dots < \gamma_k}
   \overbrace{\sum_{r_1, \dots, r_k = 1}^\infty}^{\text{valencies}}
   \biggl( \prod_{i=1}^k \frac{1}{r_i! |\Aut \gamma_i|} \biggr) \Phi(\gamma_1)^{r_1} \dots \Phi(\gamma_k)^{r_k} \\
   &= \underbrace{\prod_{\gamma \text{ connected}}}_{\substack{\text{finitely-many} \\ \text{nonzero valencies}}}
@@ -380,3 +380,68 @@ where now we are summing over graphs $\Gamma$ colored by $\{0, \dots, r\}$ where
     &\text{\scriptsize contract $\Gamma$}&
   \end{tikzcd}
 \end{equation*}
+Decomposing each graph $\Gamma$ into a $0$-colored part components and the rest we get
+\begin{equation*}
+  \Gamma = \tilde{\Gamma} \amalg
+  \underbrace{\gamma_1^{m_i} \amalg \dots \amalg \gamma_k^{m_k}}_{0\text{-colored}}
+\end{equation*}
+where the graphs $\gamma_i$ are connected $0$-colored and (each connected component of) $\tilde{\Gamma}$ has at least one nonzero color.
+Therefore
+\begin{align*}
+  \bigavg{\euler^{p(x)} \Psi_1 \dots \Psi_r}
+  &= \sum_{k=0}^\infty \sum_{\gamma_1 < \dots < \gamma_k} \sum_{m_1, \dots, m_k =1}^\infty
+  \frac{1}{|\Aut \Gamma|} \Phi(\Gamma) \\
+  &= \Biggl( \sum_{k=0}^\infty \sum_{\gamma_1 < \dots < \gamma_k} \sum_{m_1, \dots, m_k}
+    \biggl( \prod_j \frac{1}{m_j! |\Aut \gamma_j|^{m_j}} \biggr)
+    \Phi(\gamma_1)^{m_1} \dots \Phi(\gamma_k)^{m_k} \Biggr) \\
+  &\qquad \cdot \Biggl( \sum_{\tilde{\Gamma}} \frac{1}{|\Aut \tilde{\Gamma}|} \Phi(\tilde{\Gamma}) \Biggr) \\
+  &= \exp \Biggl( \underbrace{\sum_{\gamma}}_{\substack{0 \text{-colored} \\ \text{connected}}}
+    \frac{1}{|\Aut \gamma|} \Phi(\gamma) \Biggr) 
+    \Biggl( \sum_{\tilde{\Gamma}} \Phi(\tilde{\Gamma}) \Biggr) \\
+\end{align*}
+which, when normalized, wields the simpler formula
+\begin{equation*}
+  \bigavg{\Psi_1 \dots \Psi_r}_\text{pert}
+  = \hspace{-1cm}
+  \underbrace{\sum_{\Gamma}}_{\substack{
+      \text{connected components} \\
+      \text{with at least one} \\
+      \text{nonzero color}
+  }}
+  \hspace{-1cm} \frac{1}{|\Aut \Gamma|} \Phi (\Gamma).
+\end{equation*}
+
+% ── Planck's constant ─────────────────────────────────────────────────
+\subsection{Planck's constant}
+
+In this section we study a different type of perturbed Gaussian integrals.
+Let us consider formal power series on $\Rbb \llbracket \hbar \rrbracket$ for some paremter $\hbar$, and fix a polynomial of degree at least $3$ (we justify this requirement later)
+\begin{equation*}
+    p = \sum_{d = 3}^D \frac{P_d}{d!}.
+\end{equation*}
+Then we compute
+\begin{align*}
+  \int_{\Rbb^n}^\text{pert} \drm x
+  \exp \biggl[ \frac{1}{\hbar} \Bigl( -\frac{1}{2} Q(x, x) + p(x) \Bigr) \biggr]
+  &= \frac{(2 \pi \hbar)^{\frac{n}{2}}}{\sqrt{\det Q}}
+  \sum_{\Gamma} \frac{1}{|\Aut \Gamma|}
+  \Phi_{\hbar Q^{-1}, \{ \hbar P_d \}} (\Gamma) \\
+  &= \frac{(2 \pi \hbar)^{\frac{n}{2}}}{\sqrt{\det Q}}
+  \sum_{\Gamma} \frac{\hbar^{- \chi (\Gamma)}}{|\Aut \Gamma|}
+  \Phi_{\hbar Q^{-1}, \{ \hbar P_d \}}
+\end{align*}
+where $\chi(\Gamma)$ is the \textit{Euler characteristic} of the graph. Note that
+\begin{equation*}
+  |E| - |V| = \frac{1}{2} |HE| - |V| = \sum_{d = 3}^D V_d
+  \underbrace{\biggl( \frac{d}{2} - 1 \biggr)}_{> 0}
+\end{equation*}
+holds if p is at least cubic. Finally, for expectation values we get a familiar result
+\begin{equation*}
+  \int_{\Rbb^n}^\text{pert} \drm x
+  \exp \biggl[ \frac{1}{\hbar} \Bigl( -\frac{1}{2} Q(x, x) + p(x) \Bigr) \biggr]
+  \Psi_1 \dots \Psi_r
+  = \frac{(2 \pi \hbar)^{\frac{n}{2}}}{\sqrt{\det Q}}
+  \sum_{\Gamma} \frac{\hbar^{r - \chi(\Gamma)}}{|\Aut \Gamma|}
+  \Phi (\Gamma).
+  \end{equation*}
+  where we sum over graphs with at least one nonzero color in each connected component.
