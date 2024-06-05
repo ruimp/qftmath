@@ -183,4 +183,95 @@ where
 \begin{equation*}
   p(x) = \sum_{d = 0}^D \frac{g_d P_d}{d!}, \qquad P_d \in \Sym^d V^\vee.
 \end{equation*}
+We write
+\begin{equation*}
+  \euler^{p(x)} 
+  = \prod_{d = 0}^D \euler^{\frac{g_d P_d}{d!}}
+  = \sum_{V_0, \dots, V_D} \biggl( \prod_{d = 0}^D \frac{g_d^{V_d}}{V_d! (d!)^{V_d}} \biggr)
+  P_0(x)^{V_0} \dots P_D(x)^{V_D}
+\end{equation*}
+therefore
+\begin{align*}
+  \bigavg{\euler^{p(x)}}
+  &= \sum_{V_0, \dots, V_D} g_0^{V_0} \dots g_D^{V_D}
+  \sum_{\Gamma \in \mathsf{Graphs}_{V_0, \dots, V_D}}
+  \frac{1}{|\Aut \Gamma|} \Phi_{Q^{-1}, \{P_d\}} (\Gamma) \\
+  &= \underbrace{\sum_{\Gamma}}_{\substack{\text{sum over} \\ \text{all graphs}}} \frac{1}{|\Aut \Gamma|}
+  \underbrace{\Phi_{Q^{-1}, \{g_d P_d\}}}_{\substack{\text{change labels} \\ P_d \, \mapsto \, g_d P_d}}.
+\end{align*}
 
+\begin{example}
+  Let
+  \begin{equation*}
+    Q(x, x) = x^2, \qquad p(x) = \frac{\lambda}{4!} x^4.
+  \end{equation*}
+  In this case
+  \begin{align*}
+    I^p (\lambda)
+    &= \int_{\Rbb^n}^\text{pert} \drm x \euler^{-\frac{1}{2} x^2 + \frac{\lambda}{4!} x^4} \\
+    &= \sqrt{2 \pi} \biggl(
+      1 + \frac{1}{8} \hspace{-2mm}
+      \begin{tikzpicture}[scale=2, baseline=-1mm]
+        % node
+        \draw[fill=black] (0, 0) circle (.3mm);
+        \node at (.15, 0) {$\lambda$};
+        % lines
+        \draw[thick] (0, 0) to[out=50, in=130, loop] (0, 0);
+        \draw[thick] (0, 0) to[out=230, in=-50, loop] (0, 0);
+      \end{tikzpicture}
+      + \frac{1}{8^2 2} \hspace{-2mm}
+      \begin{tikzpicture}[scale=2, baseline=-1mm]
+        % node
+        \draw[fill=black] (0, 0) circle (.3mm);
+        \node at (.15, 0) {$\lambda$};
+        \draw[fill=black] (.3, 0) circle (.3mm);
+        \node at (.45, 0) {$\lambda$};
+        % lines
+        \draw[thick] (0, 0) to[out=50, in=130, loop] (0, 0);
+        \draw[thick] (0, 0) to[out=230, in=-50, loop] (0, 0);
+        \draw[thick] (.3, 0) to[out=50, in=130, loop] (.3, 0);
+        \draw[thick] (.3, 0) to[out=230, in=-50, loop] (.3, 0);
+      \end{tikzpicture}\\
+    &\quad + \frac{1}{4! 2}
+      \begin{tikzpicture}[scale=2, baseline=-1mm]
+        % node
+        \draw[fill=black] (0, 0) circle (.3mm);
+        \node at (-.12, 0) {$\lambda$};
+        \draw[fill=black] (.6, 0) circle (.3mm);
+        \node at (.72, 0) {$\lambda$};
+        % lines
+        \draw[thick] (.3, 0) circle (3mm);
+        \draw[thick] (0, 0) to[out=60, in=120] (.6, 0);
+        \draw[thick] (0, 0) to[out=-60, in=-120] (.6, 0);
+      \end{tikzpicture}
+    + \frac{1}{2^4} 
+      \begin{tikzpicture}[scale=2, baseline=-1mm]
+        % node
+        \draw[fill=black] (0, 0) circle (.3mm);
+        \draw[fill=black] (.3, 0) circle (.3mm);
+        \node at (0, .2) {$\lambda$};
+        \node at (.3, .2) {$\lambda$};
+        % lines
+        \draw[thick] (0, 0) to[out=-130, in=130, loop] (0, 0);
+        \draw[thick] (.3, 0) to[out=-50, in=50, loop] (.3, 0);
+        \draw[thick] (0, 0) to[out=70, in=110] (.3, 0);
+        \draw[thick] (0, 0) to[out=-70, in=-110] (.3, 0);
+      \end{tikzpicture}
+      + \Oscr \bigl(\lambda^3\bigr).
+    \biggr) 
+  \end{align*}
+  The $n$-th coefficient of this series expansion is given by
+  \begin{equation*}
+    \sum_{\underbrace{\Gamma}_{\substack{n\text{ vertices} \\ \text{of valency } 4}}} \frac{1}{|\Aut \Gamma|}
+    = \frac{(4n - 1)!!}{n! 4^n}.
+  \end{equation*}
+  This expression for $I^p (\lambda)$ has radius of convergence zero. Asymptotically, one can say that for all $N > 0$ there exists $M_N$ such that
+  \begin{equation*}
+    \biggl| I^p(\lambda) - \sqrt{2 \pi} \sum_{n=0}^N \lambda^n \frac{(4n - 1)!!}{n! 4^n} \biggr|
+    \leq M_N |\lambda|^{N + 1}
+  \end{equation*}
+  for $\lambda < 0$ provided that $|\lambda|$ is sufficiently small.
+\end{example}
+
+% ── Connected graphs ──────────────────────────────────────────────────
+\subsection{Connected graphs}
