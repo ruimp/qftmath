@@ -1,0 +1,237 @@
+\chapter{Lecture 10}
+
+\section{Scalar QFT in the Wilsonian Sense}
+
+The main reference for this lecture is \cite[Sections 1.1 to 1.5 and 2.1 to 2.7]{CosRenormalization11}.
+Our goal is to give a Wilsonian definition of scaler QFT. Consider the data:
+\begin{enumerate}[i)]
+  \item \textbf{spacetime:} smooth Riemannian manifold $M$ (we consider $M = \Rbb^n$);
+  \item \textbf{scalar fields:} smooth functions $ \varphi \colon M \to \Rbb$;
+  \item \textbf{action functional:} a local functional
+  \begin{equation*}
+    S(\varphi) = \int_M - \frac{1}{2} \varphi \bigl( \Drm + m^2 \bigr) \varphi 
+    + \hspace{-7mm} \underbrace{I (\varphi)}_{\substack{
+        \text{interactions terms} \\
+        \text{(cubic or higher)}}}
+  \end{equation*}
+  where we call $m > 0$ the \textit{mass parameter} and $\Drm$ denotes the Laplacian.
+\end{enumerate}
+
+For the Dirichlet problem on some domain $U \subseteq M$
+\begin{equation*}
+  \begin{cases}
+    \Drm \varphi(x) + \lambda \varphi(x), &\text{ if } x \in U \\
+    \varphi(x) = 0, &\text{ if } x \in \partial U
+  \end{cases}
+\end{equation*}
+we write the associated eigenfunctions $\varphi_n$ with corresponding eigenvalues $\lambda_n$.
+It is known that the inverse Laplacian operator is compact and self-adjoint. From the spectral theorem follows that
+\begin{equation*}
+  0 < 
+  \underbrace{\lambda_1 \leq \dots \leq \lambda_n}_{\text{energies}}
+  \leq \dots \longrightarrow \infty.
+\end{equation*}
+
+In this context, \textbf{observables} are functionals $\Ocal : \Crm^\infty (M) \to \Cbb$.
+
+\begin{example}
+  The evaluation map is an observable
+  \begin{equation*}
+    \Ocal_x (\varphi) = \varphi(x), \quad \forall x \in M.
+  \end{equation*}
+\end{example}
+
+The physical information of the theory is encoded in the correlation functions, which we compute (up to normalization) using the Feynman sum of histories approach
+\begin{equation*}
+  \langle \Ocal_1, \dots, \Ocal_n \rangle
+  = \int_{\varphi \in \Crm^\infty(M)} \euler^{\frac{1}{\hbar} S(\varphi) }
+  \Ocal_1(\varphi) \dots \Ocal_n(\varphi) \Drm \varphi.
+\end{equation*}
+
+To proceed, we restrict to \textit{low-energy fields}
+\begin{equation*}
+  \Crm_{\leq \Lambda} = \Crm^\infty(M)_{\leq \Lambda}
+\end{equation*}
+corresponding to the space spanned by eigenfunctions with associated energy $\lambda_n \leq \Lambda$ (in principle finite-dimensional), and \textit{low-energy observables}
+\begin{equation*}
+  (\Ocal \colon \Crm_{\leq \Lambda} \longrightarrow \Cbb) \in \Obs_{\leq \Lambda}.
+\end{equation*}
+Then
+\begin{equation*}
+  \langle \Ocal_1, \dots, \Ocal_n \rangle
+  = \int_{\varphi \in \Crm_{\leq \Lambda}}
+  \euler^{\frac{1}{\hbar} S^\text{eff}[\Lambda](\varphi)} \Ocal_1 (\varphi) \dots \Ocal_n (\varphi) \Drm \varphi
+\end{equation*}
+for some low-energy \textbf{effective action} $S^\text{eff}[\Lambda]$. For low-energy observable we have
+\begin{equation*}
+  \Ocal \in \Obs_{\leq \Lambda'} \Longrightarrow
+  \Ocal \in \Obs_{\leq \Lambda}, \quad 0 < \Lambda' < \Lambda
+\end{equation*}
+which motivates the decomposition of fields into \textit{low-} and \textit{high-energy} parts
+\begin{equation*}
+  \varphi = \varphi_L + \varphi_H, \quad \varphi_L \perp \varphi_H
+\end{equation*}
+where $\varphi_L$ is the projection of $\varphi$ on $\Crm_{\leq \Lambda'}$, and $\varphi_H$ the corresponding parallel component in $\Crm_{\leq \Lambda}$. Then
+\begin{align*}
+  &\quad \int_{\varphi_L \in \Crm_{\leq \Lambda'}} \euler^{\frac{1}{\hbar} S^\text{eff} [\Lambda'] (\varphi_L)}
+    \Ocal_1 (\varphi_L) \dots \Ocal_n (\varphi_L) \Drm \varphi \\
+  &= \int_{\varphi \in \Crm_{\leq \Lambda}} \euler^{\frac{1}{\hbar} S^\text{eff}[\Lambda](\varphi)}
+    \Ocal_1 (\varphi) \dots \Ocal_n(\varphi) \Drm \varphi \\
+  &= \int_{\varphi_L} 
+  \biggl(\int_{\varphi_H} \euler^{\frac{1}{\hbar} S^\text{eff}[\Lambda] (\varphi_L+\varphi_H)}\biggr)
+  \Ocal_1(\varphi_L) \dots \Ocal_n (\varphi_L) \Drm \varphi
+\end{align*}
+implying that
+\begin{equation*}
+  \euler^{\frac{1}{\hbar} S^\text{eff}[\Lambda'] (\varphi_L)}
+  = \int_{\varphi_H} \euler^{\frac{1}{\hbar} S^\text{eff} [\Lambda] (\varphi_L + \varphi_H)} \Drm \varphi_H.
+\end{equation*}
+Taking the logarithm we obtain the \textbf{renormalization group equation} (RGE)
+\begin{equation*}
+  S^\text{eff}[\Lambda'] (\varphi_L)
+  = \hbar \log \int_{\varphi_H} \euler^{\frac{1}{\hbar} S^\text{eff}[\Lambda] (\varphi_L + \varphi_H)} 
+  \Drm \varphi_H.
+\end{equation*}
+
+\subsection{Renormalization Group Equation}
+
+Assume that
+\begin{equation*}
+  S^\text{eff}[\Lambda] (\varphi) = \int_M - \frac{1}{2} \varphi \bigl(D + m^2\bigr) \varphi
+  + \hspace{-3mm}
+  \underbrace{I^\text{eff}[\Lambda] (\varphi)}_{\text{effective interaction}} \hspace{-2mm}.
+\end{equation*}
+From the linearity of the Laplacian and the RGE follows that
+\begin{equation*}
+  I^\text{eff}[\Lambda'](\varphi_L)
+  = \hbar \log \int_{\varphi_H} \exp
+    \biggl( -\frac{1}{2 \hbar} \varphi_H \bigl(D + m^2\bigr) \varphi_H
+    + \frac{1}{\hbar} I^\text{eff}[\Lambda] (\varphi_L + \varphi_H) \biggr) \Drm \varphi_H.
+\end{equation*}
+
+We are interested in finite-dimensional integrals of the form
+\begin{equation*}
+  W(P, I)
+  = \int_U \exp \biggl( 
+    \frac{1}{2 \hbar} \Phi (x, x)
+    + \frac{1}{\hbar} I(x + a)
+  \biggr) 
+\end{equation*}
+for some nondegenerate negative-definite quadratic form $\Phi$, understood as a Feynman diagram expansion.
+Here $P$ is the integral kernel of $(\Drm + m^2)^{-1}$ (propagator)
+\begin{equation*}
+  P(x, y) = \int_{\tau = 0}^\infty \euler^{-\tau m^2} \dd \tau
+  \underbrace{K_\tau^0 (x, y)}_{\text{heat kernel}}
+\end{equation*}
+where we write
+\begin{equation*}
+  K_\tau^0 (x, y)
+  = \int_{f \in \Omega_{x, y}}
+  \exp \biggl( \int_0^\tau \| \drm f \|^2 \dd s \biggr) \dd W
+\end{equation*}
+for
+\begin{equation*}
+  \Omega_{x, y} = \{
+    f : [0, \tau] \to M \mid f(0) = x, f(\tau) = y
+  \}.
+\end{equation*}
+In terms of eigenfunctions
+\begin{equation*}
+  K_\tau^0 (x, y) 
+  = \sum_{n=0}^\infty \euler^{-\lambda_n \tau}
+  \varphi_n (x) \varphi_n (y)
+\end{equation*}
+and $K_\tau = K_\tau^0 \euler^{\tau m^2}$ is such that
+\begin{equation*}
+  P(x, y) = \int_{\tau = 0}^\infty K_\tau (x, y) \dd \tau.
+\end{equation*}
+
+\subsection{Length scale instead of energy scale}
+
+The high-energy regimes correspond to small scales:
+\begin{equation*}
+  \text{short lengths} \leftrightsquigarrow
+  \text{high energy}.
+\end{equation*}
+Because of this, the RGE should relate different length scales
+\begin{equation*}
+  P(\varepsilon, L) (x, y)
+  = \int_{l=\varepsilon}^{L} K_l(x, y) \dd l.
+\end{equation*}
+Again, the RGE for relating different scales
+\begin{equation*}
+  I^\text{eff}[L] = W\bigl(P(\varepsilon, L), I^\text{eff}[\varepsilon]\bigr)
+\end{equation*}
+is given in terms of Feynman diagrams.
+Expanding in powers
+\begin{equation*}
+  I^\text{eff} = \sum_{i, j} \hbar^j \varphi^k I_{j, k}.
+\end{equation*}
+
+\begin{example}
+  Some examples of the diagrammatic approach are
+  \begin{equation*}
+    \begin{tikzpicture}[scale=0.8, baseline=-1mm]
+      \node[ellipse, draw, thick] (A) at (0, 0) {$I_{0, 4}^\text{eff} [L]$};
+      \draw[thick] (A) -- (1, 1);
+      \draw[thick] (A) -- (1, -1);
+      \draw[thick] (A) -- (-1, 1);
+      \draw[thick] (A) -- (-1, -1);
+    \end{tikzpicture}
+    \hspace{3mm}= \hspace{3mm}
+    \begin{tikzpicture}[scale=0.8, baseline=-1mm]
+      \node[ellipse, draw, thick] (A) at (0, 0) {$I_{0, 4}^\text{eff} [\varepsilon]$};
+      \draw[thick] (A) -- (1, 1);
+      \draw[thick] (A) -- (1, -1);
+      \draw[thick] (A) -- (-1, 1);
+      \draw[thick] (A) -- (-1, -1);
+    \end{tikzpicture}
+    \hspace{3mm} +
+    \begin{tikzpicture}[scale=0.8, baseline=-1mm]
+      \node[ellipse, draw, thick] (A) at (0, -1.5) {$I_{0, 3}^\text{eff}       [\varepsilon]$};
+      \node[ellipse, draw, thick] (B) at (0, 1.5) {$I_{0, 3}^\text{eff}       [\varepsilon]$};
+      \draw[thick] (A) -- (1, -2.5);
+      \draw[thick] (A) -- (-1, -2.5);
+      \draw[thick] (A) -- (B);
+      \draw[thick] (B) -- (1, 2.5);
+      \draw[thick] (B) -- (-1, 2.5);
+      \node at (.9, 0) {$P(\varepsilon, L)$};
+    \end{tikzpicture}
+  \end{equation*}
+  and
+  \begin{equation*}
+    \begin{tikzpicture}[scale=0.8, baseline=-1mm]
+      \node[ellipse, draw, thick] (A) at (0, 0) {$I_{1, 1}^\text{eff}       [L]$};
+      \draw[thick] (A) -- (0, -1.4);
+    \end{tikzpicture}
+    \hspace{5mm}=\hspace{5mm}
+    \begin{tikzpicture}[scale=0.8, baseline=-1mm]
+      \node[ellipse, draw, thick] (A) at (0, 0) {$I_{1, 1}^\text{eff}       [\varepsilon]$};
+      \draw[thick] (A) -- (0, -1.4);
+    \end{tikzpicture}
+    \hspace{5mm}+ \hspace{5mm}
+    \begin{tikzpicture}[scale=0.8, baseline=-1mm]
+      \node[ellipse, draw, thick] (A) at (0, 0) {$I_{0, 3}^\text{eff}       [\varepsilon]$};
+      \draw[thick] (A) -- (0, -1.4);
+      \draw[thick] (A) to[out=60, in=120, loop, looseness=5] (A);
+      \node at (1.4, 1.15) {$P(\varepsilon, L)$};
+    \end{tikzpicture}.
+  \end{equation*}
+\end{example}
+
+\begin{definition}
+  A \textbf{perturbative QFT} with space of fields and action functional as prescribed earlier, is given by a set of interactions $I[L]$ such that:
+  \begin{enumerate}[i)]
+    \item the RGE holds for any positive scales:
+      \begin{equation*}
+        I[L] = W \bigl(p(\varepsilon, L), I[\varepsilon]\bigr), \qquad
+        \forall \varepsilon, L \in (0, \infty];
+      \end{equation*}
+    \item the components $I_{j, k}$ are \textbf{local:} if
+      \begin{equation*}
+        S^\text{eff}[L] (\varphi)
+        = \sum_{i} f_i (L) \Theta_i (\varphi)
+      \end{equation*}
+      then $\Theta_i$ are local functionals.
+  \end{enumerate}
+\end{definition}
