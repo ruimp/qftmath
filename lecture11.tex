@@ -238,3 +238,59 @@ a differential operator of cohomological degree $1$ such that $Q^2 = 0$.
   \end{equation*}
   For $n \geq 2$ this complex is not exact, hence the original complex not elliptic.
 \end{example}
+
+Suppose that $(E^\bullet, Q)$ is elliptic and choose $h_i$ a Hermitian metric on $E^i$.
+Define an $\Lrm^2$-norm on sections
+\begin{equation*}
+  h_i^{\Lrm^2}(s, s')
+  = \int_M h_i (s, s') \dd \text{vol}_g (x).
+\end{equation*}
+The we a get a \textit{formal adjoint}
+\begin{equation*}
+  \begin{tikzcd}
+    \dots &
+    \Ecal^{i-1} \arrow[l, swap, "Q^*"] &
+    \Ecal^{i} \arrow[l, swap, "Q^*"] &
+    \Ecal^{i+1} \arrow[l, swap, "Q^*"] &
+    \dots \arrow[l, swap, "Q^*"]
+  \end{tikzcd}
+\end{equation*}
+defined such that
+\begin{equation*}
+  h_{i+1}^{\Lrm^2}(Q u, v) = h_i^{\Lrm^2} (u, Q^* v), \qquad
+  \forall u \in \Ecal^{i}, \forall v \in \Ecal^{i+1}.
+\end{equation*}
+
+\begin{lemma}
+  The operator
+  \begin{equation*}
+    \Drm = [Q, Q^*] = Q Q^* + Q^* Q
+  \end{equation*}
+  is elliptic.
+\end{lemma}
+\begin{proof}
+  Note that
+  \begin{equation*}
+    \sigma(Q^*)_{\xi_x} = \bigl( \sigma(Q)_{\xi_x} \bigr)^*
+  \end{equation*}
+  where the second $*$ denotes the usual finite-dimensional adjoint with respect to the fiber metric.
+  Thus
+  \begin{equation*}
+    \sigma(\Drm)
+    = \sigma(Q) \sigma(Q^*) + \sigma(Q^*) \sigma(Q) \\
+    = \sigma(Q) \sigma(Q)^* + \sigma(Q)^* \sigma(Q)
+  \end{equation*}
+  and for all $v \in \ker \bigl( \sigma(\Drm)_\xi \bigr)$ we have
+  \begin{equation*}
+    0 = h\bigl(v, \sigma(\Drm)_\xi v \bigr)
+    = \bigl| \sigma(Q)_\xi  v \bigr|_h^2 + \bigl| \sigma(Q)_\xi^* v \bigr|_h^2.
+  \end{equation*}
+  We conclude that
+  \begin{equation*}
+    v \in \ker \bigl( \sigma(Q)_\xi \bigr) \cap
+    \ker \bigl( \sigma(Q)_\xi^* \bigr)
+    = \ker \bigl( \sigma(Q)_\xi \bigr) \cap
+    \ker \bigl( \sigma(Q)_\xi \bigr)^\perp
+  \end{equation*}
+  implying that $v = 0$.
+\end{proof}
