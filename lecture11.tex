@@ -70,3 +70,171 @@ Since $\sigma(P)$ is the only symbol we will need, let us just call it the \text
   \end{equation*}
   Evaluating at $x$ gives $\sigma(P)_\xi$.
 \end{proof}
+
+\begin{example}
+  The exterior derivative
+  \begin{equation*}
+    \drm \colon \Omega^\bullet(M) \longrightarrow \Omega^\bullet (M)
+  \end{equation*}
+  can be writen in local coordinates as
+  \begin{equation*}
+    \drm = \sum_{i=1}^n \frac{\partial}{\partial x^i} \drm x^i \wedge
+  \end{equation*}
+  therefore
+  \begin{equation*}
+    \sigma(\drm)_\xi = \sum_{i=1}^n \xi_i \drm x^i \wedge = \xi \wedge
+  \end{equation*}
+  so the symbol is given by the wedge product.
+\end{example}
+
+\begin{example}
+  The Laplacian
+  \begin{equation*}
+    \laplace \colon \Crm^\infty(M) \longrightarrow \Crm^\infty (M)
+  \end{equation*}
+  can be writen in normal coordinates around $p \in M$
+  \begin{equation*}
+    \laplace |_p = - \sum_{i = 1}^n
+    \biggl( \frac{\partial}{\partial x^i} \biggr)^2
+  \end{equation*}
+  hence $\sigma (\laplace)_\xi = - |\xi|^2$.
+\end{example}
+
+\begin{example}
+  The Hodge Laplacian
+  \begin{equation*}
+    \laplace \colon \Omega^\bullet (M) \longrightarrow \Omega^\bullet (M)
+  \end{equation*}
+  is given by
+  \begin{align*}
+    \laplace 
+    &= \drm \drm^\hodge + \drm^\hodge \drm \\
+    &= - \sum_{i=1}^n \biggl( \frac{\partial}{\partial x^i} \biggr)^2
+    \Bigl( \iota_{\frac{\partial}{\partial x^i}} \drm x^i
+    + \drm x^i \iota_{\frac{\partial}{\partial x^i} }\Bigr) \\
+    &= - \sum_{i=1}^n
+    \Bigl[ \iota_{\frac{\partial}{\partial x^i}}, \drm x^i \Bigr]
+    \biggl( \frac{\partial}{\partial x^i} \biggr)^2
+  \end{align*}
+  where $\iota_{\frac{\partial}{\partial x^i}}$ denotes the interior product and $\drm x^i$ is the operator $\drm x^i \wedge$ in $\Omega^\bullet (M)$.
+
+  Remarkably, we still have $\sigma(\laplace)_\xi = - |\xi|^2$. To see this, we need the following proposition.
+  
+  \begin{proposition}
+    For differential operators $P$ and $P'$ we have
+    \begin{equation*}
+      \sigma(P)_\xi \sigma(P')_\xi = \sigma(P P')_\xi.
+    \end{equation*}
+  \end{proposition}
+  \begin{proof}
+    If $P$ has order $k$ and $P'$ has order $k'$, then $P P'$ has order $k + k'$ and
+    \begin{align*}
+      &\quad \lim_{t \to \infty}
+      \Bigl( (i t)^{-k} \euler^{-i t f} P \euler^{i t f} \Bigr)
+      \Bigl( (i t)^{-k'} \euler^{- i t f} P' \euler^{i t f} \Bigr) \\
+      &= \lim_{t \to \infty}
+      \Bigl( (i t )^{-k-k'} \euler^{- i t f} P P' \euler^{i t f} \Bigr).
+    \end{align*}
+  \end{proof}
+
+  We also need that
+  \begin{equation*}
+    \sigma( \drm^\hodge)_\xi = - \iota_{\xi^\#}
+  \end{equation*}
+  where $\xi^\# \in T_x M$ is the unique vector such that $\xi = g(\xi^\#, \cdot)$. Then
+  \begin{align*}
+    \sigma(\laplace)_\xi
+    &= \sigma(\drm \drm^\hodge + \drm^\hodge \drm)_\xi \\
+    &= \sigma(\drm \drm^\hodge)_\xi + \sigma (\drm^\hodge \drm)_\xi \\
+    &= \bigl[\xi, - \iota_{\xi^\#}\bigr] \\
+    &= - | \xi |^2.
+  \end{align*}
+\end{example}
+
+\begin{definition}
+  An operator $P \colon \Lambda (E) \to \Lambda(F)$ is \textbf{elliptic} if the symbol $\sigma(P)_\xi$ is invertible for all $\xi \neq 0$.
+\end{definition}
+Remember that, for all $\xi \in T_x^*M$, the symbol is a linear operator $\sigma(P)_\xi \colon E_x \to F_x$.
+
+\begin{definition}
+  An operator $P : \Lambda(E) \to \Lambda(E)$ is called a \textbf{generalized Laplacian} if
+  \begin{equation*}
+    \sigma(P)_\xi = - |\xi|_{\tilde{g}}^2
+  \end{equation*}
+  for some metric $\tilde{g}$ on $M$, not necessarily the one we started with.
+\end{definition}
+The previous definition comes from \cite{BGVHeat96}, but we have taken the opposite sign convention.
+
+\section{Elliptic Complexes}
+
+Suppose $P \colon \Gamma(E) \to \Gamma(F)$ is elliptic. The symbol $\sigma(P)$ defines a bundle map over $T^*M$
+\begin{equation*}
+  \begin{tikzcd}
+    0 \arrow[r] &
+    \pi^* E \arrow[r, "\sigma(P)"] &
+    \pi^* F \arrow[r] & 0
+  \end{tikzcd}
+\end{equation*}
+which is exact over $T^*M$ away from the zero section.
+Now let $(E^\bullet, Q)$ be the $\Zbb$-graded vector bundle $E^\bullet \to M$, and
+\begin{equation*}
+  Q \colon \Gamma(E^\bullet) \longrightarrow \Gamma(E^\bullet)
+\end{equation*}
+a differential operator of cohomological degree $1$ such that $Q^2 = 0$.
+
+\begin{definition}
+  The complex $(E^\bullet, Q)$ is an \textbf{elliptic complex} if the symbol complex $(\pi^* E, \sigma(Q))$ is exact over $T^*M \to M$.
+\end{definition}
+
+\begin{example}
+  To the de Rham complex
+  \begin{equation*}
+    \begin{tikzcd}
+      0 \arrow[r] &
+      \Omega^0 (M) \arrow[r, "\drm"] &
+      \Omega^1 (M) \arrow[r, "\drm"] &
+      \dots \arrow[r, "\drm"] &
+      \Omega^n (M)
+    \end{tikzcd}
+  \end{equation*}
+  corresponds the symbol complex for $\xi \in \Omega^1 (M)$
+  \begin{equation*}
+    \begin{tikzcd}
+      0 \arrow[r] &
+      \Omega^0 (M) \arrow[r, "\xi"] &
+      \Omega^1 (M) \arrow[r, "\xi"] &
+      \dots \arrow[r, "\xi"] &
+      \Omega^n (M)
+    \end{tikzcd}.
+  \end{equation*}
+  If $\xi \neq 0$ and $\xi \wedge \beta = 0$, then $\beta = \xi \wedge \alpha$ for some $\alpha \in \Omega^\bullet(M)$. We conclude that the symbol complex is exact, and thus $(\Omega^\bullet, \drm)$ is an elliptic complex.
+\end{example}
+
+\begin{example}
+  The Yang-Mills complex is not elliptic. We have
+  \begin{equation*}
+    \begin{tikzcd}
+      0 \arrow[r] &
+      \Omega^0(M, \gfrak) \arrow[r, "\drm"] &
+      \Omega^1(M, \gfrak) \arrow[r, "\drm \hodge \drm"] &
+      \Omega^{n-1}(M, \gfrak) \arrow[r, "\drm"] &
+      \Omega^n (M, \gfrak)
+    \end{tikzcd}
+  \end{equation*}
+  with corresponding symbol complex
+  \begin{equation*}
+    \begin{tikzcd}
+      M \times \gfrak \arrow[r, "\xi \wedge"] &
+      T^* M \otimes \gfrak \arrow[r, "Q"] &
+      \bigwedge^{n-1} T^* M \otimes \gfrak \arrow[r, "\xi \wedge"] &
+      \bigwedge^n T^* M \otimes \gfrak
+    \end{tikzcd}
+  \end{equation*}
+  where
+  \begin{equation*}
+    Q = \sigma(\drm \hodge \drm)_\xi \alpha \\
+      = \sum_{j, k} \xi_j \xi_k \drm x^i \wedge
+      \hodge (\drm x^i \wedge \alpha).
+  \end{equation*}
+  For $n \geq 2$ this complex is not exact, hence the original complex not elliptic.
+\end{example}
