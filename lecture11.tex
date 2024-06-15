@@ -1,0 +1,72 @@
+\chapter{Lecture 11 - Leander Stecker}
+
+\section{Elliptic Operators and Complexes}
+
+Let $M$ be a closed, oriented Riemannian manifold, and $E, F \to M$ complex vector bundles over $M$.
+A \textbf{differential operator}
+\begin{equation*}
+  P \colon \Gamma (E) \longrightarrow \Gamma(F)
+\end{equation*}
+is a $\Cbb$-linear map that, in local coordinates $(U, x^i)$ of $M$ with local trivializations of $E$ and $F$, has the form
+\begin{equation*}
+  P = \sum_{|\alpha| \leq k} A^\alpha
+  \frac{\partial^{|\alpha|} }{\partial x^{\alpha}} 
+\end{equation*}
+where $\alpha$ is a multi-index and
+\begin{equation*}
+  A^\alpha \in \Hom ( E |_U, F |_U )
+\end{equation*}
+is a bundle map over $U$.
+The number $k \in \Zbb_{\geq 0}$ is called the \textbf{order} of $P$.
+
+\begin{definition}
+  The \textbf{principal symbol} $\sigma(P)$ is a section of the pullback bundle
+  $\pi^* \Hom(E, F)$ over $T^*M$, as in the following diagram.
+  \begin{equation*}
+    \begin{tikzcd}[sep=large]
+      |[label={-45:\lrcorner}]|
+      \pi^* \Hom(E, F) \arrow[r] \arrow[d] &
+      \Hom(E, F) \arrow[d] \\
+      T^* M \arrow[r, "\pi"] &
+      M
+    \end{tikzcd}
+  \end{equation*}
+\end{definition}
+
+At $\xi \in T^* M$, $\sigma(P)$ is given by
+\begin{equation*}
+  \sigma(P)_\xi = \sum_{|\alpha| \leq k} A^\alpha (x) \xi_\alpha
+\end{equation*}
+where for $\alpha = (\alpha_1, \dots, \alpha_n)$, we write $\xi = \xi_i \drm x^i$.
+Since $\sigma(P)$ is the only symbol we will need, let us just call it the \textit{symbol} of $P$.
+
+\begin{lemma}
+  The symbol of $P$ is equivalently defined by
+  \begin{equation*}
+    \sigma(P)_\xi = \lim_{t \to \infty} (it)^{-k} \euler^{-i t f}
+    P \euler^{i t f}
+  \end{equation*}
+  where $f$ is any smooth function such that
+  \begin{equation*}
+    \drm f (x) = \xi.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  In a local trivialization over a chart, for a local section $s$, we compute
+  \begin{align*}
+    P \euler^{i t f} s
+    &= \sum_{|\alpha| \leq k} A^\alpha
+    \frac{\partial^{|\alpha|}}{\partial x^\alpha}
+    \bigl( \euler^{i t f} s \bigr) \\
+    &= \sum_{|\alpha| \leq k} (i t)^k
+    \frac{\partial^{|\alpha|} f}{\partial x^\alpha} \euler^{i t f}
+    A^\alpha s +
+    \substack{\text{lower} \\ \text{order in } t}
+  \end{align*}
+  hence
+  \begin{equation*}
+    \lim_{t \to \infty} (it)^{-k} \euler^{-i t f} P \euler^{i t f} s
+    = \sum_{|\alpha| = k} \drm f \biggl( \frac{\partial^|\alpha|}{\partial x^\alpha} \biggr) A^\alpha s.
+  \end{equation*}
+  Evaluating at $x$ gives $\sigma(P)_\xi$.
+\end{proof}
