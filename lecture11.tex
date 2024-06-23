@@ -20,7 +20,7 @@ is a bundle map over $U$.
 The number $k \in \Zbb_{\geq 0}$ is called the \textbf{order} of $P$.
 
 \begin{definition}
-  The \textbf{principal symbol} $\sigma(P)$ is a section of the pullback bundle
+  The \textbf{principal symbol} $\sigma(P)$ of a differential operator is a section of the pullback bundle
   $\pi^* \Hom(E, F)$ over $T^*M$, as in the following diagram.
   \begin{equation*}
     \begin{tikzcd}[sep=large]
@@ -211,32 +211,35 @@ a differential operator of cohomological degree $1$ such that $Q^2 = 0$.
 \end{example}
 
 \begin{example}
-  The Yang-Mills complex is not elliptic. We have
+  To the Yang-Mills complex
   \begin{equation*}
     \begin{tikzcd}
-      0 \arrow[r] &
       \Omega^0(M, \gfrak) \arrow[r, "\drm"] &
       \Omega^1(M, \gfrak) \arrow[r, "\drm \hodge \drm"] &
-      \Omega^{n-1}(M, \gfrak) \arrow[r, "\drm"] &
-      \Omega^n (M, \gfrak)
+      \Omega^{n-1} (M, \gfrak) \arrow[r, "\drm"] &
+      \Omega^n(M, \gfrak)
     \end{tikzcd}
   \end{equation*}
-  with corresponding symbol complex
+  we associate
   \begin{equation*}
-    \begin{tikzcd}
-      M \times \gfrak \arrow[r, "\xi \wedge"] &
-      T^* M \otimes \gfrak \arrow[r, "Q"] &
-      \bigwedge^{n-1} T^* M \otimes \gfrak \arrow[r, "\xi \wedge"] &
-      \bigwedge^n T^* M \otimes \gfrak
-    \end{tikzcd}
+    \begin{tikzcd}[sep=small]
+      0 \arrow[r] &
+      \bigwedge^0 (M) \otimes \gfrak \arrow[r] &
+      \bigwedge^1 (M) \otimes \gfrak \arrow[r] &
+      \bigwedge^{n-1} (M) \otimes \gfrak \arrow[r] &
+      \bigwedge^n (M) \otimes \gfrak \arrow[r] & 0
+    \end{tikzcd}.
   \end{equation*}
-  where
+  The de Rham complex is exact, so it suffices to show that
   \begin{equation*}
-    Q = \sigma(\drm \hodge \drm)_\xi \alpha \\
-      = \sum_{j, k} \xi_j \xi_k \drm x^i \wedge
-      \hodge (\drm x^i \wedge \alpha).
+    \ker \bigl( \sigma(\drm \hodge \drm)_\xi \bigr)
+    = \ker (\xi \wedge)
   \end{equation*}
-  For $n \geq 2$ this complex is not exact, hence the original complex not elliptic.
+  by showing that
+  \begin{equation*}
+    \underbrace{\ker \bigl( \sigma(\drm \hodge)_\xi \bigr)}_{\ker(- \iota_\xi)}
+    \cap \underbrace{\Image \sigma(\drm)_\xi}_{\Image(\xi \wedge)} = 0.
+  \end{equation*}
 \end{example}
 
 Suppose that $(E^\bullet, Q)$ is elliptic and choose $h_i$ a Hermitian metric on $E^i$.
