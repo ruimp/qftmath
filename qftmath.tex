@@ -1,6 +1,6 @@
-%! TeX program = lualatex
+%! TeX program = pdflatex
 % ╭──────────────────────────────────────────────────────────╮
-% │      This document should be compiled with LuaLaTeX      │
+% │      This document should be compiled with pdflatex      │
 % ╰──────────────────────────────────────────────────────────╯
 \documentclass[a4paper, 12pt, oneside]{memoir}
 
@@ -16,11 +16,18 @@
 \setsecheadstyle{\normalfont\Large\bfseries\sffamily}
 
 % ── Language ──────────────────────────────────────────────────────────
-\usepackage{polyglossia}
-\setdefaultlanguage[variant=usmax]{english}
+\usepackage[utf8]{inputenc}
+
+% In LuaLaTeX use polyglossia
+% \usepackage{polyglossia}
+% \setdefaultlanguage[variant=usmax]{english}
+
 
 % ── Fonts ─────────────────────────────────────────────────────────────
 \usepackage[libertinus, upint, vvarbb]{newtx}
+
+% In LuaLaTeX remove microtype
+\usepackage{microtype}
 
 % ── Tikz ──────────────────────────────────────────────────────────────
 \usepackage{standalone}
@@ -181,9 +188,9 @@ Rui Peixoto and Björn Gohla
 \newpage
 \thispagestyle{empty}
 \begin{vplace}[0.7]
-\begin{center}
-\textit{Page intentionally left blank.}
-\end{center}
+  \begin{center}
+    \textit{Page intentionally left blank.}
+  \end{center}
 \end{vplace}
 \newpage
 
