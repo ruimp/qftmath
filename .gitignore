@@ -9,3 +9,6 @@
 *.run.xml
 *.synctex.gz
 *.DS_Store
+*~
+.dir-locals.el
+auto/
