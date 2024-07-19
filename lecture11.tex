@@ -10,7 +10,7 @@ A \textbf{differential operator}
 is a $\Cbb$-linear map that, in local coordinates $(U, x^i)$ of $M$ with local trivializations of $E$ and $F$, has the form
 \begin{equation*}
   P = \sum_{|\alpha| \leq k} A^\alpha
-  \frac{\partial^{|\alpha|} }{\partial x^{\alpha}} 
+  \frac{\partial^{|\alpha|} }{\partial x^{\alpha}}
 \end{equation*}
 where $\alpha$ is a multi-index and
 \begin{equation*}
@@ -55,13 +55,13 @@ Since $\sigma(P)$ is the only symbol we will need, let us just call it the \text
   In a local trivialization over a chart, for a local section $s$, we compute
   \begin{align*}
     P \euler^{i t f} s
-    &= \sum_{|\alpha| \leq k} A^\alpha
+     & = \sum_{|\alpha| \leq k} A^\alpha
     \frac{\partial^{|\alpha|}}{\partial x^\alpha}
-    \bigl( \euler^{i t f} s \bigr) \\
-    &= \sum_{|\alpha| \leq k} (i t)^k
+    \bigl( \euler^{i t f} s \bigr)       \\
+     & = \sum_{|\alpha| \leq k} (i t)^k
     \frac{\partial^{|\alpha|} f}{\partial x^\alpha} \euler^{i t f}
     A^\alpha s +
-    \substack{\text{lower} \\ \text{order in } t}
+    \substack{\text{lower}               \\ \text{order in } t}
   \end{align*}
   hence
   \begin{equation*}
@@ -107,19 +107,19 @@ Since $\sigma(P)$ is the only symbol we will need, let us just call it the \text
   \end{equation*}
   is given by
   \begin{align*}
-    \laplace 
-    &= \drm \drm^\hodge + \drm^\hodge \drm \\
-    &= - \sum_{i=1}^n \biggl( \frac{\partial}{\partial x^i} \biggr)^2
+    \laplace
+     & = \drm \drm^\hodge + \drm^\hodge \drm                            \\
+     & = - \sum_{i=1}^n \biggl( \frac{\partial}{\partial x^i} \biggr)^2
     \Bigl( \iota_{\frac{\partial}{\partial x^i}} \drm x^i
-    + \drm x^i \iota_{\frac{\partial}{\partial x^i} }\Bigr) \\
-    &= - \sum_{i=1}^n
+    + \drm x^i \iota_{\frac{\partial}{\partial x^i} }\Bigr)             \\
+     & = - \sum_{i=1}^n
     \Bigl[ \iota_{\frac{\partial}{\partial x^i}}, \drm x^i \Bigr]
     \biggl( \frac{\partial}{\partial x^i} \biggr)^2
   \end{align*}
   where $\iota_{\frac{\partial}{\partial x^i}}$ denotes the interior product and $\drm x^i$ is the operator $\drm x^i \wedge$ in $\Omega^\bullet (M)$.
 
   Remarkably, we still have $\sigma(\laplace)_\xi = - |\xi|^2$. To see this, we need the following proposition.
-  
+
   \begin{proposition}
     For differential operators $P$ and $P'$ we have
     \begin{equation*}
@@ -129,10 +129,10 @@ Since $\sigma(P)$ is the only symbol we will need, let us just call it the \text
   \begin{proof}
     If $P$ has order $k$ and $P'$ has order $k'$, then $P P'$ has order $k + k'$ and
     \begin{align*}
-      &\quad \lim_{t \to \infty}
+       & \quad \lim_{t \to \infty}
       \Bigl( (i t)^{-k} \euler^{-i t f} P \euler^{i t f} \Bigr)
       \Bigl( (i t)^{-k'} \euler^{- i t f} P' \euler^{i t f} \Bigr) \\
-      &= \lim_{t \to \infty}
+       & = \lim_{t \to \infty}
       \Bigl( (i t )^{-k-k'} \euler^{- i t f} P P' \euler^{i t f} \Bigr).
     \end{align*}
   \end{proof}
@@ -144,10 +144,10 @@ Since $\sigma(P)$ is the only symbol we will need, let us just call it the \text
   where $\xi^\# \in T_x M$ is the unique vector such that $\xi = g(\xi^\#, \cdot)$. Then
   \begin{align*}
     \sigma(\laplace)_\xi
-    &= \sigma(\drm \drm^\hodge + \drm^\hodge \drm)_\xi \\
-    &= \sigma(\drm \drm^\hodge)_\xi + \sigma (\drm^\hodge \drm)_\xi \\
-    &= \bigl[\xi, - \iota_{\xi^\#}\bigr] \\
-    &= - | \xi |^2.
+     & = \sigma(\drm \drm^\hodge + \drm^\hodge \drm)_\xi              \\
+     & = \sigma(\drm \drm^\hodge)_\xi + \sigma (\drm^\hodge \drm)_\xi \\
+     & = \bigl[\xi, - \iota_{\xi^\#}\bigr]                            \\
+     & = - | \xi |^2.
   \end{align*}
 \end{example}
 
@@ -243,7 +243,7 @@ a differential operator of cohomological degree $1$ such that $Q^2 = 0$.
 \end{example}
 
 Suppose that $(E^\bullet, Q)$ is elliptic and choose $h_i$ a Hermitian metric on $E^i$.
-Define an $\Lrm^2$-norm on sections
+Define a $\Lrm^2$-norm on sections
 \begin{equation*}
   h_i^{\Lrm^2}(s, s')
   = \int_M h_i (s, s') \dd \text{vol}_g (x).
@@ -277,7 +277,7 @@ defined such that
     \sigma(Q^*)_{\xi_x} = \bigl( \sigma(Q)_{\xi_x} \bigr)^*
   \end{equation*}
   where the second $*$ denotes the usual finite-dimensional adjoint with respect to the fiber metric.
-  Thus
+  Thus,
   \begin{equation*}
     \sigma(\Drm)
     = \sigma(Q) \sigma(Q^*) + \sigma(Q^*) \sigma(Q) \\

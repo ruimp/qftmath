@@ -8,18 +8,20 @@
   \begin{enumerate}[i)]
     \item a $\Zbb$-graded vector bundle $E \to M$;
     \item a Hermitian nondegenerate pairing $\langle \cdot, \cdot \rangle$ of degree $-1$;
-    \item a differential operator $Q \colon \Gamma(E) \to \Gamma(E)$ of degree $1$ such that $Q^2 = 0$ and $Q$ is skew-symmetric with respect to the pairing.
-          This makes $(E, Q)$ into an elliptic complex.
+    \item a differential operator $Q \colon \Gamma(E) \to \Gamma(E)$ of degree $1$ such that $Q^2 = 0$, $Q$ is skew-symmetric with respect to the pairing, and wields an elliptic complex $(E, Q)$.
   \end{enumerate}
 \end{definition}
 
 \begin{definition}
-  A \textit{gauge fixing operator} $Q^\text{GF} \colon \Gamma(E) \to \Gamma$ is a differential operator of degree $-1$, symmetric with respect to the pairing $\langle \cdot, \cdot \rangle$.
-  We define $\Drm = \bigl[Q, Q^\text{GF}\bigr]$, and say that it is a \textit{generalized Laplacian} if
+  Let
+  $Q^\text{GF} \colon \Gamma(E) \to \Gamma(E)$
+  be a differential operator of degree $-1$, symmetric with respect to the pairing $\langle \cdot, \cdot \rangle$.
+  This operator is a \textit{generalized Laplacian} if $\Drm = \big[Q, Q^\text{GF}\big]$ is such that
   \begin{equation*}
     \sigma(\Drm)_\xi = - |\xi|^2
   \end{equation*}
   where $|\cdot|$ is defined with respect to any metric on $M$.
+  If this condition holds, we say that $Q^\text{GF}$ is a \textit{gauge fixing operator}.
 \end{definition}
 
 % ── Heat Kernels and Propagators ──────────────────────────────────────
@@ -33,12 +35,12 @@
   \end{equation*}
   Then:
   \begin{enumerate}[i)]
-    \item if $u \in \Hrm^\Srm (M, E)$ for Sobolev space, and $P u \in \Crm^\infty (M, E)$, then $u \in \Crm^\infty(E, M)$;
+    \item if $u \in \Hrm^\Srm (M, E)$ for some Sobolev space, and $P u \in \Crm^\infty (M, E)$, then $u \in \Crm^\infty(E, M)$;
     \item there exists a complex orthonormal basis $\{ u_j \}_{j \in \Zbb_{\geq 0}}$ of $\Lrm^2 (M, E)$ consisting of smooth eigensections of $P$, with eigenvalues
           \begin{equation*}
             0 \geq \lambda_1 \geq \dots \geq \lambda_n \geq \dots
           \end{equation*}
-          such that $\lambda_j \in \Crm_j^c$, for some $c = c(n, k) > 0$ depending on $n$ and $k$.
+          such that $\lambda_j \geq C j^c$, for some $c = c(n, k) > 0$ depending on $n$ and $k$, and $C > 0$.
   \end{enumerate}
 \end{theorem}
 
