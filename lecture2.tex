@@ -1,17 +1,18 @@
 \chapter{Lecture 2}
 
-In this lecture we consider a naive example that aims to exemplify how the Euler-Lagrange equations lead us to classical BV theories.
+In this lecture we consider a naive example illustrating how the Euler-Lagrange equations lead us to classical BV theories.
 
 \begin{example}
   Let $\Fcal$ be a finite-dimensional vector space encoding the naive space of fields and consider an action
   \begin{equation*}
     S \colon \Fcal \longrightarrow \Rbb.
   \end{equation*}
-  We say that $S$ is a \textbf{naive action} because it might be necessary to add additional terms to $S$ to guarantee that it satisfies the CME.
-  The solutions to the Euler-Lagrange equation are fields $f \in \Fcal$ such that ${\drm S}_f = 0$.
-  Restricting to the case $\Fcal = M$ for some finite-dimensional manifold $M$, we say that critical points of the action form the \textbf{critical locus} of $S$
+  We say that $S$ is a naive action because adding additional terms might be necessary to guarantee that it satisfies the CME.
+  The solutions to the Euler-Lagrange equation are fields $f \in \Fcal$ such that ${\drm S} (f) = 0$.
+
+  In general, if $\Fcal = M$ for some finite-dimensional manifold $M$, we say that critical points of the action form the \textbf{critical locus} of $S$
   \begin{equation*}
-    \Crit (S) = \bigl\{ p \in M \bigm| \drm S_p = 0 \bigr\}.
+    \Crit (S) = \bigl\{ p \in M \bigm| \drm S (p) = 0 \bigr\}.
   \end{equation*}
   Alternatively, we can characterize the critical locus of $S$ as an intersection in $T^* M$
   \begin{equation*}
@@ -26,16 +27,16 @@ In this lecture we consider a naive example that aims to exemplify how the Euler
   \begin{figure}[ht]
     \includestandalone{bad_intersections}
     \centering
-    \caption{Well-behaved (in green) and badly-behaved (in red) points of an intersection.}
+    \caption{Well-behaved (in green) and badly-behaved (in red) intersection points.}
     \label{fig:bad_intersections}
   \end{figure}
   \begin{itemize}
-    \item \textbf{Why?} This intersection might not be well-behaved, in the sense that $\drm S$ and the zero section might not intersect transversally, or even smoothly, at every point, as illustrated in figure \ref{fig:bad_intersections}. The derived approach allows us to study these badly-behaved points using Serre's intersection formula.
+    \item \textbf{Why?} The intersection might not be well-behaved, in the sense that $\drm S$ and the zero section might not intersect transversally, or even smoothly, at every point, as illustrated in figure \ref{fig:bad_intersections}. The derived approach allows us to study these badly-behaved points using Serre's intersection formula.
     \item \textbf{How?} We replace $\Oscr (\Graph(\drm S)) \otimes_{\Oscr (T^*M)} \Oscr(M)$ with a dg commutative algebra $A$ such that
     \begin{equation*}
       \Hrm^0 A = \Oscr (\Graph(\drm S)) \otimes_{\Oscr (T^*M)} \Oscr(M).
     \end{equation*}
-    To compute the derived tensor product $\otimes^{\Lbb}$ we need to resolve either $\Oscr(M)$ or $\Oscr(\Graph(\drm S))$ in $\Oscr(T^* M)$-modules. Let us make use of Darboux coordinates to resolve
+    To compute the derived tensor product $\otimes^{\Lbb}$ we need to resolve either $\Oscr(M)$ or $\Oscr(\Graph(\drm S))$ in $\Oscr(T^* M)$-modules. Let us make use of Darboux coordinates to write
     \begin{align*}
       \Oscr(\Graph(\drm S)) &=
       \bigslant{\Oscr(T^* M)}{ \bigl( f \vert_{\Graph(\drm S)} = 0 \bigr) } \\
@@ -64,11 +65,12 @@ In this lecture we consider a naive example that aims to exemplify how the Euler
     \begin{equation*}
       \Oscr(\dCrit(S)) = K^{-\bullet} \otimes_{T^* M} \Oscr(M)
     \end{equation*}
-    which we call the \textbf{derived critical locus}. But notice that
+    which we call the \textbf{derived critical locus}.
+    Now note that
     \begin{equation*}
       \Oscr(T^* M) \otimes_{\Oscr(M)} \PV^\bullet(M) \otimes_{\Oscr(T^* M)} \Oscr(M) \cong \PV^\bullet(M)
     \end{equation*}
-    where $\PV^\bullet(M)$ denotes the complex of polyvector fields on M. The differential is given by contracting with $\drm S$, so we write
+    where $\PV^\bullet(M)$ denotes the complex of polyvector fields on M. The differential is given by contracting with $\drm S$ so we write
     \begin{equation*}
       \Oscr(\dCrit(S)) = (\PV^\bullet(M), -\iota_{\drm S}).
     \end{equation*}

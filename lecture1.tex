@@ -2,6 +2,8 @@
 
 \section{History}
 
+A brief history of the development of the Batallin-Vilkovisky (BV) formalism:
+
 \begin{center}
   \begin{tabular}{ccccc}
     Date & People & What & Why & Techniques \\
@@ -47,7 +49,7 @@
 % ╰──────────────────────────────────────────────────────────╯
 \section{References}
 
-The main references for this seminar will be:
+The main references will be:
 
 \begin{itemize}
   \item Costello - Renormalization and Effective Field Theory \cite{CosRenormalization11};
@@ -58,7 +60,7 @@ The main references for this seminar will be:
 % ╭──────────────────────────────────────────────────────────╮
 % │                Roadmap to BV quantization                │
 % ╰──────────────────────────────────────────────────────────╯
-\section{Roadmap to BV Quantization}
+\section{Roadmap to BV quantization}
 
 \begin{figure}
   \includestandalone{roadmap_to_BV}
@@ -76,7 +78,7 @@ The space of fields $\Ecal^\bullet$ is a cochain complex
     \dots
   \end{tikzcd}
 \end{equation*}
-equipped with a differential $Q$ such that $Q^2 = 0$. Moreover, $\Ecal$ admits a $-1$-shifted symplectic structure, that is, there exists a non degenerate pairing of degree $-1$
+equipped with a differential $Q$ such that $Q^2 = 0$. Moreover, $\Ecal$ admits a $-1$-shifted symplectic structure, that is, there exists a nondegenerate pairing of degree $-1$
 \begin{equation*}
   \langle \cdot , \cdot \rangle \colon
   \Ecal \otimes \Ecal \longrightarrow \Rbb [-1]
@@ -88,11 +90,12 @@ This structure defines a $+1$-shifted Poisson bracket
   \Oscr( \Ecal ) \otimes \Oscr( \Ecal ) \longrightarrow \Oscr( \Ecal )
 \end{equation*}
 where $\Oscr ( \Ecal ) \cong \mathrm{Sym}^\bullet (\Ecal^\vee)$ is the (graded) commutative algebra of polynomial functions on the dual complex $\Ecal^\vee$.
-Pick $S \in \Oscr (\Ecal)$ obeying the \textbf{classical master equation} (CME)
+Consider a function $S \in \Oscr (\Ecal)$ obeying the \textbf{classical master equation} (CME)
 \begin{equation*}
   \{ S, S \} = 0.
 \end{equation*}
-The data $(\Ecal, \langle \cdot, \cdot \rangle, S)$ defines a \textbf{classical BV theory}. The CME says $\{ S, \cdot \}$ is a differential which makes $(\Oscr ( \Ecal ), \{S, \cdot \} )$ into a cochain complex such that
+The data $(\Ecal^\bullet, \langle \cdot, \cdot \rangle, S)$ defines a \textbf{classical BV theory}.
+The CME implies that $\{ S, \cdot \}$ is a differential making $(\Oscr ( \Ecal ), \{S, \cdot \} )$ into a cochain complex such that
 \begin{equation*}
   \Hrm^0 \Oscr ( \Ecal ) \cong
   \Oscr( \mathrm{Crit} (S) ),
@@ -130,21 +133,22 @@ For electromagnetism on a manifold $M$ we have a space of fields
 The slogan of quantization in the BV formalism is to \textit{deform the differential}.
 In the perturbative context we work in formal power series in $\hbar$, for example, over the ring $\Rbb \formalpow{\hbar}$.
 Quantization results in a cochain complex
-$(\Oscr(\Ecal)\formalpow{\hbar}, \{S^q, \cdot\} + \hbar \laplace$, where $\laplace$ is called the BV Laplacian, and 
+$(\Oscr(\Ecal)\formalpow{\hbar}, \{S^q, \cdot\} + \hbar \laplace)$, where $\laplace$ is called the BV Laplacian, and the function
 $S^q \in \Oscr(\Ecal)[[\hbar]]$ satisfies the \textbf{quantum master equation} (QME)
 \begin{equation*}
-  (\{S^q, \cdot \} + \hbar \laplace)^2 = 0
+  (\{S^q, \cdot \} + \hbar \laplace)^2 = 0.
 \end{equation*}
 
 \begin{example}
-  In finite dimensions, i.e. $\Fcal \cong \Rbb^n$, the BV fields are
+  In finite dimensions, consider the BV fields
   \begin{equation*}
-    \Ecal =
-    \begin{tikzcd}[sep=small]
+    \Ecal^\bullet =
+    (\begin{tikzcd}[sep=small]
       \Rbb \arrow[r] & \Rbb
-    \end{tikzcd}
+    \end{tikzcd}).
   \end{equation*}
-  therefore
+  concentrated in degree $0$ and $1$.
+  Then
   \begin{equation*}
     \Oscr(\Ecal) \cong \Rbb \bigl[ x^1, \dots, x^n, \xi^1, \dots, \xi^n \bigr]
   \end{equation*}
@@ -152,7 +156,7 @@ $S^q \in \Oscr(\Ecal)[[\hbar]]$ satisfies the \textbf{quantum master equation} (
   \begin{equation*}
     \laplace = \sum_{\mu = 1}^n \frac{\partial}{\partial \xi^\mu} \frac{\partial}{\partial x^\mu}.
   \end{equation*}
-  In this form, it becomes clear that $\laplace$ is a differential operator of degree $1$ such that $\laplace^2 = 0$.
+  Note that $\laplace$ is a differential operator of degree $1$ such that $\laplace^2 = 0$.
 \end{example}
 The quantum action is a function of the form
 \begin{equation*}
@@ -163,7 +167,7 @@ where $I^q \in \Oscr(\Ecal) [[\hbar]]$ is cubic mod $\hbar$ and satisfies the QM
 \begin{equation*}
   Q I^q + \frac{1}{2} \{I^q, I^q\} + \hbar \laplace I^q = 0
 \end{equation*}
-which resembles the \textbf{Maurer-Cartan} (MC) \textbf{equation}. In infinite dimensions, some problems arise:
+which resembles the \textbf{Maurer-Cartan} (MC) equation. In infinite dimensions, some problems arise:
 
 \begin{enumerate}[i)]
   \item there may be no solution to this equation. In this case we say that quantization is obstructed (there is an anomaly);
